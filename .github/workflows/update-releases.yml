@@ -1,0 +1,41 @@
+name: Update release data
+
+on:
+  # schedule:
+  #   # 每 6 小时跑一次；想恢复定时任务，取消注释这两行即可（cron 是 UTC 时间）
+  #   - cron: '0 */6 * * *'
+  workflow_dispatch: {}   # 允许在 Actions 页面手动点一下立即触发
+  repository_dispatch:
+    types: [release-published]   # 项目仓库发布 release 时会触发这个事件，见 templates/notify-release-site.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-release-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch releases
+        run: node scripts/fetch-releases.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update release data [skip ci]"
+            git push
+          fi

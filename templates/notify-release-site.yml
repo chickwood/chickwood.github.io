@@ -1,0 +1,45 @@
+# 把这份文件复制到 project-a、project-b 各自仓库的 .github/workflows/ 目录下
+# 文件名随意，比如 notify-release-site.yml
+#
+# 作用：project-a / project-b 发布新 release 时，主动通知发布页仓库
+# 去跑一次 fetch-releases.mjs，把最新数据抓下来。
+#
+# 用之前要做两件事：
+# 1. 把下面 REPO_OWNER/SITE_REPO 替换成你发布页仓库的实际路径
+# 2. 在这个项目仓库（不是发布页仓库）里加一个 secret：SITE_DISPATCH_TOKEN
+#    值是一个有权限访问发布页仓库的 GitHub Token（见下方"关于 Token"）
+
+name: Notify release site
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger release-site update
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: Bearer ${{ secrets.SITE_DISPATCH_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/REPO_OWNER/SITE_REPO/dispatches \
+            -d '{"event_type":"release-published","client_payload":{"source_repo":"${{ github.repository }}"}}'
+
+# ---------------------------------------------------------------------------
+# 关于 Token（SITE_DISPATCH_TOKEN）：
+#
+# 默认的 GITHUB_TOKEN 只能操作当前所在的仓库，跨仓库触发必须用一个额外的
+# Personal Access Token。推荐用 Fine-grained token：
+#
+# 1. GitHub 右上角头像 → Settings → Developer settings → Personal access tokens
+#    → Fine-grained tokens → Generate new token
+# 2. Repository access 选 "Only select repositories"，只勾发布页那个仓库
+# 3. Permissions 里找到 "Actions"，设成 "Read and write"
+# 4. 生成后复制 token
+# 5. 回到 project-a（这个项目仓库）→ Settings → Secrets and variables → Actions
+#    → New repository secret → 名字填 SITE_DISPATCH_TOKEN，值粘贴刚才的 token
+# 6. project-b 重复第 5 步（同一个 token 可以复用）
+#
+# 这样 project-a、project-b 发布 release 时都会各自通知发布页仓库更新数据。

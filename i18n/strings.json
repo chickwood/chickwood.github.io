@@ -1,0 +1,107 @@
+{
+  "site_title": {
+    "zh-CN": "项目发布",
+    "en": "Releases",
+    "ja": "リリース"
+  },
+  "site_subtitle": {
+    "zh-CN": "选择一个项目查看版本历史",
+    "en": "Select a project to view its release history",
+    "ja": "プロジェクトを選んでリリース履歴を見る"
+  },
+  "back_to_projects": {
+    "zh-CN": "← 所有项目",
+    "en": "← All projects",
+    "ja": "← すべてのプロジェクト"
+  },
+  "view_project_releases": {
+    "zh-CN": "查看发布 →",
+    "en": "View releases →",
+    "ja": "リリースを見る →"
+  },
+  "view_on_github": {
+    "zh-CN": "在 GitHub 上查看",
+    "en": "View on GitHub",
+    "ja": "GitHub で見る"
+  },
+  "latest_release": {
+    "zh-CN": "最新版本",
+    "en": "Latest release",
+    "ja": "最新リリース"
+  },
+  "released_on": {
+    "zh-CN": "发布于",
+    "en": "Released on",
+    "ja": "公開日"
+  },
+  "download": {
+    "zh-CN": "下载 ↓",
+    "en": "Download ↓",
+    "ja": "ダウンロード ↓"
+  },
+  "download_page": {
+    "zh-CN": "下载页面 ↓",
+    "en": "Download page ↓",
+    "ja": "ダウンロードページ ↓"
+  },
+  "view_changelog": {
+    "zh-CN": "查看更新日志",
+    "en": "View changelog",
+    "ja": "変更履歴を見る"
+  },
+  "previous_releases": {
+    "zh-CN": "历史版本",
+    "en": "Previous releases",
+    "ja": "過去のリリース"
+  },
+  "expand": {
+    "zh-CN": "展开 ↓",
+    "en": "Expand ↓",
+    "ja": "展開する ↓"
+  },
+  "collapse": {
+    "zh-CN": "收起 ↑",
+    "en": "Collapse ↑",
+    "ja": "折りたたむ ↑"
+  },
+  "no_releases": {
+    "zh-CN": "这个项目还没有发布任何 release。",
+    "en": "This project has no releases yet.",
+    "ja": "このプロジェクトにはまだリリースがありません。"
+  },
+  "no_changelog": {
+    "zh-CN": "（这个版本没有填写更新说明）",
+    "en": "(No changelog provided for this release)",
+    "ja": "（このリリースには変更履歴がありません）"
+  },
+  "loading": {
+    "zh-CN": "正在加载 …",
+    "en": "Loading …",
+    "ja": "読み込み中 …"
+  },
+  "load_error": {
+    "zh-CN": "加载失败，请稍后重试。",
+    "en": "Failed to load. Please try again later.",
+    "ja": "読み込みに失敗しました。しばらくしてから再試行してください。"
+  },
+  "project_not_found": {
+    "zh-CN": "找不到这个项目。",
+    "en": "Project not found.",
+    "ja": "プロジェクトが見つかりません。"
+  },
+  "screenshots": {
+    "zh-CN": "项目截图",
+    "en": "Screenshots",
+    "ja": "スクリーンショット"
+  },
+  "updated_at": {
+    "zh-CN": "数据更新于",
+    "en": "Data last updated",
+    "ja": "データ最終更新"
+  },
+  "footer_note": {
+    "zh-CN": "由定时任务自动生成",
+    "en": "Generated automatically on a schedule",
+    "ja": "定期タスクにより自動生成"
+  }
+}

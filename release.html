@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Releases</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="dot"></span><span id="projectName">…</span></div>
+    <div class="header-right">
+      <a class="icon-link" id="repoLink" href="#" target="_blank" rel="noopener" data-i18n="view_on_github">在 GitHub 上查看</a>
+      <div id="langSwitcher"></div>
+    </div>
+  </header>
+
+  <a class="icon-link" href="index.html" style="display:inline-flex; margin-bottom:32px;" data-i18n="back_to_projects">← 所有项目</a>
+
+  <p class="tagline" id="tagline"></p>
+
+  <div class="gallery-section" id="gallerySection" style="display:none;">
+    <p class="section-label" style="margin-top:0;" data-i18n="screenshots">项目截图</p>
+    <div class="gallery" id="gallery"></div>
+  </div>
+
+  <div id="content">
+    <div class="state">…</div>
+  </div>
+
+  <footer>
+    <span id="updatedAt"></span>
+    <a id="repoLinkFooter" href="#" target="_blank" rel="noopener"></a>
+  </footer>
+</div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/render.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const projectKey = params.get('project');
+
+let currentProject = null;
+
+async function init() {
+  await initI18n();
+
+  const res = await fetch('config/projects.json');
+  const projects = await res.json();
+  currentProject = projects.find(p => p.key === projectKey);
+
+  if (!currentProject) {
+    document.getElementById('content').innerHTML = `<div class="state error">${t('project_not_found')}</div>`;
+    return;
+  }
+
+  renderProjectChrome();
+  await loadAndRenderProject(currentProject.key);
+}
+
+function renderProjectChrome() {
+  const repoUrl = `https://github.com/${currentProject.owner}/${currentProject.repo}`;
+  document.getElementById('projectName').textContent = tField(currentProject.name);
+  document.getElementById('repoLink').href = repoUrl;
+  document.getElementById('repoLinkFooter').href = repoUrl;
+  document.getElementById('repoLinkFooter').textContent = `${currentProject.owner}/${currentProject.repo}`;
+  document.getElementById('tagline').textContent = tField(currentProject.description);
+  renderGallery();
+}
+
+function renderGallery() {
+  const section = document.getElementById('gallerySection');
+  const track = document.getElementById('gallery');
+  const items = currentProject.gallery;
+
+  if (!items || items.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+
+  section.style.display = 'block';
+  track.innerHTML = items.map(item => {
+    const caption = tField(item.caption);
+    const src = tField(item.src);
+    return `
+      <div class="gallery-item">
+        <img src="${src}" alt="${caption}" loading="lazy">
+        <p class="gallery-caption">${caption}</p>
+      </div>
+    `;
+  }).join('');
+}
+
+function onLocaleChange() {
+  if (currentProject) {
+    renderProjectChrome();
+    loadAndRenderProject(currentProject.key);
+  }
+}
+
+init();
+</script>
+
+</body>
+</html>

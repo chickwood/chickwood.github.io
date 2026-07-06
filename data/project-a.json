@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2026-07-01T00:00:00Z",
+  "releases": [
+    {
+      "tag": "v1.2.0",
+      "name": "v1.2.0 — 示例数据",
+      "body": "这是本地预览用的示例数据。\n\n配好 config/projects.json 里的 owner/repo 并跑一次 GitHub Action 后，这份文件会被真实的 release 数据覆盖。",
+      "published_at": "2026-06-20T08:00:00Z",
+      "html_url": "https://github.com/your-username/your-repo-a/releases/tag/v1.2.0",
+      "assets": [
+        { "name": "project-a-v1.2.0-mac.zip", "size": 15728640, "url": "https://github.com/your-username/your-repo-a/releases/download/v1.2.0/project-a-v1.2.0-mac.zip" },
+        { "name": "project-a-v1.2.0-win.zip", "size": 18874368, "url": "https://github.com/your-username/your-repo-a/releases/download/v1.2.0/project-a-v1.2.0-win.zip" }
+      ]
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "v1.1.0",
+      "body": "示例：修复了若干问题，优化了启动速度。",
+      "published_at": "2026-05-10T08:00:00Z",
+      "html_url": "https://github.com/your-username/your-repo-a/releases/tag/v1.1.0",
+      "assets": []
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "v1.0.0 — 首个正式版",
+      "body": "示例：第一个正式发布版本。",
+      "published_at": "2026-04-01T08:00:00Z",
+      "html_url": "https://github.com/your-username/your-repo-a/releases/tag/v1.0.0",
+      "assets": []
+    }
+  ]
+}
