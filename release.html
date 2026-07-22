@@ -12,7 +12,6 @@
   <header>
     <div class="brand"><span class="dot"></span><span id="projectName">…</span></div>
     <div class="header-right">
-      <a class="icon-link" id="repoLink" href="#" target="_blank" rel="noopener" data-i18n="view_on_github">在 GitHub 上查看</a>
       <div id="langSwitcher"></div>
     </div>
   </header>
@@ -63,7 +62,6 @@ async function init() {
 function renderProjectChrome() {
   const repoUrl = `https://github.com/${currentProject.owner}/${currentProject.repo}`;
   document.getElementById('projectName').textContent = tField(currentProject.name);
-  document.getElementById('repoLink').href = repoUrl;
   document.getElementById('repoLinkFooter').href = repoUrl;
   document.getElementById('repoLinkFooter').textContent = `${currentProject.owner}/${currentProject.repo}`;
   document.getElementById('tagline').textContent = tField(currentProject.description);

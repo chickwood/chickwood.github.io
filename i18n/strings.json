@@ -1,23 +1,28 @@
 {
   "site_title": {
-    "zh-CN": "项目发布",
-    "en": "Releases",
-    "ja": "リリース"
+    "zh-CN": "W57的工具箱",
+    "en": "W57's Toolbox",
+    "ja": "W57のツールボックス"
   },
-  "site_subtitle": {
-    "zh-CN": "选择一个项目查看版本历史",
-    "en": "Select a project to view its release history",
-    "ja": "プロジェクトを選んでリリース履歴を見る"
+  "projects_page_title": {
+    "zh-CN": "所有工具",
+    "en": "All tools",
+    "ja": "すべてのツール"
+  },
+  "projects_page_subtitle": {
+    "zh-CN": "选择一个工具查看详细内容",
+    "en": "Select a tool to view detail",
+    "ja": "一つ選んで詳細を見る"
   },
   "back_to_projects": {
-    "zh-CN": "← 所有项目",
-    "en": "← All projects",
-    "ja": "← すべてのプロジェクト"
+    "zh-CN": "← 返回列表",
+    "en": "← Back to list",
+    "ja": "← 一覧に戻る"
   },
-  "view_project_releases": {
-    "zh-CN": "查看发布 →",
-    "en": "View releases →",
-    "ja": "リリースを見る →"
+  "view_detail": {
+    "zh-CN": "查看详细 →",
+    "en": "View detail →",
+    "ja": "詳細を見る →"
   },
   "view_on_github": {
     "zh-CN": "在 GitHub 上查看",
@@ -94,14 +99,14 @@
     "en": "Screenshots",
     "ja": "スクリーンショット"
   },
-  "updated_at": {
+  "updated_on": {
     "zh-CN": "数据更新于",
-    "en": "Data last updated",
-    "ja": "データ最終更新"
+    "en": "Data updated on",
+    "ja": "データ更新日"
   },
   "footer_note": {
-    "zh-CN": "由定时任务自动生成",
-    "en": "Generated automatically on a schedule",
-    "ja": "定期タスクにより自動生成"
+    "zh-CN": "本页数据随新版本发布自动更新",
+    "en": "Data updates automatically with each new release",
+    "ja": "このページのデータは、新規リリース公開時に自動更新されます"
   }
 }

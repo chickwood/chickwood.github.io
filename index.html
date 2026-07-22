@@ -10,14 +10,14 @@
 
 <div class="wrap">
   <header>
-    <div class="brand"><span class="dot"></span><span data-i18n="site_title">项目发布</span></div>
+    <div class="brand"><span class="dot"></span><span data-i18n="site_title">W57的项目小屋</span></div>
     <div class="header-right">
       <div id="langSwitcher"></div>
     </div>
   </header>
 
-  <h1 class="page-title" data-i18n="site_title">项目发布</h1>
-  <p class="page-subtitle" data-i18n="site_subtitle">选择一个项目查看版本历史</p>
+  <h1 class="page-title" data-i18n="projects_page_title">项目发布</h1>
+  <p class="page-subtitle" data-i18n="projects_page_subtitle">选择一个项目查看版本历史</p>
 
   <div class="project-list" id="projectList">
     <div class="state">...</div>
@@ -41,7 +41,7 @@ async function renderProjectList() {
           <p class="project-card-name">${tField(p.name)}</p>
           <p class="project-card-desc">${tField(p.description)}</p>
         </div>
-        <span class="project-card-cta">${t('view_project_releases')}</span>
+        <span class="project-card-cta">${t('view_detail')}</span>
       </a>
     `).join('');
   } catch (err) {

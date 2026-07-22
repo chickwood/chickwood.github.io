@@ -3,7 +3,12 @@
 
 function fmtDate(iso) {
   if (!iso) return '';
-  return new Date(iso).toISOString().slice(0, 10);
+  return new Intl.DateTimeFormat(currentLocale, {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    timeZone: 'UTC',
+  }).format(new Date(iso));
 }
 
 function fmtSize(bytes) {
@@ -37,7 +42,7 @@ function renderHero(release) {
     <p class="eyebrow">${t('latest_release')}</p>
     <h1 class="hero-version">${tag}</h1>
     ${title ? `<p class="hero-title">${title}</p>` : ''}
-    <p class="hero-meta">${t('released_on')} ${date}</p>
+    <p><span class="hero-meta">${t('released_on')} <time class="mono-txt">${date}</time></span></p>
     <div class="btn-row">
       <a class="btn btn-primary" href="${downloadHref}" target="_blank" rel="noopener">${primaryAsset ? t('download') : t('download_page')}</a>
       <a class="btn btn-ghost" href="${release.html_url}" target="_blank" rel="noopener">${t('view_changelog')}</a>
@@ -98,7 +103,8 @@ async function loadAndRenderProject(projectKey) {
     const data = await res.json();
 
     if (updatedEl && data.updatedAt) {
-      updatedEl.textContent = `${t('updated_at')} ${fmtDate(data.updatedAt)}`;
+      const updatedDate = fmtDate(data.updatedAt);
+      updatedEl.innerHTML = `${t('updated_on')} <time class="mono-txt">${updatedDate}</time>`;
     }
 
     if (!data.releases || data.releases.length === 0) {
