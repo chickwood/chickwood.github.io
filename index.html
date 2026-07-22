@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>W57's Toolbox</title>
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W57's Toolbox</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
 
-<div class="wrap">
-  <header>
-    <div class="brand"><span class="dot"></span><span data-i18n="site_title" /></div>
-    <div class="header-right">
-      <div id="langSwitcher"></div>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="dot"></span><span data-i18n="site_title" /></div>
+      <div class="header-right">
+        <div id="langSwitcher"></div>
+      </div>
+    </header>
+
+    <div>
+      <p class="page-title" data-i18n="projects_page_title" />
+      <p class="page-subtitle" data-i18n="projects_page_subtitle" />
     </div>
-  </header>
 
-  <div>
-    <p class="page-title" data-i18n="projects_page_title" />
-    <p class="page-subtitle" data-i18n="projects_page_subtitle" />
+    <div class="project-list" id="projectList">
+      <div class="state"></div>
+    </div>
+
+    <footer>
+      <span data-i18n="footer_note" />
+    </footer>
   </div>
 
-  <div class="project-list" id="projectList">
-    <div class="state"></div>
-  </div>
-
-  <footer>
-    <span data-i18n="footer_note" />
-  </footer>
-</div>
-
-<script src="assets/i18n.js"></script>
-<script>
-async function renderProjectList() {
-  const listEl = document.getElementById('projectList');
-  try {
-    const res = await fetch('config/projects.json');
-    const projects = await res.json();
-    listEl.innerHTML = projects.map(p => `
+  <script src="assets/i18n.js"></script>
+  <script>
+    async function renderProjectList() {
+      const listEl = document.getElementById('projectList');
+      try {
+        const res = await fetch('config/projects.json');
+        const projects = await res.json();
+        listEl.innerHTML = projects.map(p => `
       <a class="project-card" href="release.html?project=${encodeURIComponent(p.key)}">
         <div>
           <p class="project-card-name">${tField(p.name)}</p>
@@ -46,20 +48,21 @@ async function renderProjectList() {
         <span class="project-card-cta">${t('view_detail')}</span>
       </a>
     `).join('');
-  } catch (err) {
-    listEl.innerHTML = `<div class="state error">${t('load_error')}</div>`;
-  }
-}
+      } catch (err) {
+        listEl.innerHTML = `<div class="state error">${t('load_error')}</div>`;
+      }
+    }
 
-function onLocaleChange() {
-  renderProjectList();
-}
+    function onLocaleChange() {
+      renderProjectList();
+    }
 
-(async () => {
-  await initI18n();
-  await renderProjectList();
-})();
-</script>
+    (async () => {
+      await initI18n();
+      await renderProjectList();
+    })();
+  </script>
 
 </body>
+
 </html>

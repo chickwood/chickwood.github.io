@@ -36,7 +36,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
   flex-wrap: wrap;
 }
 
@@ -62,7 +62,8 @@ header {
   gap: 10px;
 }
 
-a.icon-link {
+.icon-link {
+  background: var(--panel);
   color: var(--accent);
   text-decoration: none;
   font-size: small;
@@ -75,7 +76,7 @@ a.icon-link {
   transition: border-color .15s ease, color .15s ease;
 }
 
-a.icon-link:hover {
+.icon-link:hover {
   background: var(--accent-soft);
 }
 
@@ -321,12 +322,13 @@ a.icon-link:hover {
 
 .btn-ghost {
   background: var(--panel);
-  color: var(--text);
+  color: var(--accent);
+  transition: border-color .15s ease, color .15s ease;
   border-color: var(--border);
 }
 
 .btn-ghost:hover {
-  border-color: var(--text);
+  background: var(--accent-soft);
 }
 
 .assets {
