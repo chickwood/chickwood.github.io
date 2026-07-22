@@ -1,105 +1,112 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Releases</title>
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W57's Toolbox</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
 
-<div class="wrap">
-  <header>
-    <div class="brand"><span class="dot"></span><span id="projectName">…</span></div>
-    <div class="header-right">
-      <div id="langSwitcher"></div>
+  <div class="wrap">
+    <header>
+    <div class="brand"><span class="dot"></span><span data-i18n="site_title" /></div>
+      <div class="header-right">
+        <div id="langSwitcher"></div>
+      </div>
+    </header>
+
+    <div>
+      <a class="icon-link" href="index.html" style="margin-bottom:16px;" data-i18n="back_to_projects"></a>
+      <p class="tagline-title" id="projectName" />
+      <p class="tagline-subtitle" id="projectDescription" />
     </div>
-  </header>
 
-  <a class="icon-link" href="index.html" style="display:inline-flex; margin-bottom:32px;" data-i18n="back_to_projects">← 所有项目</a>
+    <div class="gallery-section" id="gallerySection" style="display:none;">
+      <p class="section-label" style="margin-top:0;" data-i18n="screenshots" />
+      <div class="gallery" id="gallery"></div>
+    </div>
 
-  <p class="tagline" id="tagline"></p>
+    <div id="content">
+      <div class="state"></div>
+    </div>
 
-  <div class="gallery-section" id="gallerySection" style="display:none;">
-    <p class="section-label" style="margin-top:0;" data-i18n="screenshots">项目截图</p>
-    <div class="gallery" id="gallery"></div>
+    <footer>
+      <span id="updatedAt"></span>
+      <a id="repoLinkFooter" href="#" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/github/A0C0FF" width="24" height="24" alt="GitHub" />
+      </a>
+    </footer>
   </div>
 
-  <div id="content">
-    <div class="state">…</div>
-  </div>
+  <script src="assets/i18n.js"></script>
+  <script src="assets/render.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const projectKey = params.get('project');
 
-  <footer>
-    <span id="updatedAt"></span>
-    <a id="repoLinkFooter" href="#" target="_blank" rel="noopener"></a>
-  </footer>
-</div>
+    let currentProject = null;
 
-<script src="assets/i18n.js"></script>
-<script src="assets/render.js"></script>
-<script>
-const params = new URLSearchParams(window.location.search);
-const projectKey = params.get('project');
+    async function init() {
+      await initI18n();
 
-let currentProject = null;
+      const res = await fetch('config/projects.json');
+      const projects = await res.json();
+      currentProject = projects.find(p => p.key === projectKey);
 
-async function init() {
-  await initI18n();
+      if (!currentProject) {
+        document.getElementById('content').innerHTML = `<div class="state error">${t('project_not_found')}</div>`;
+        return;
+      }
 
-  const res = await fetch('config/projects.json');
-  const projects = await res.json();
-  currentProject = projects.find(p => p.key === projectKey);
+      renderProjectChrome();
+      await loadAndRenderProject(currentProject.key);
+    }
 
-  if (!currentProject) {
-    document.getElementById('content').innerHTML = `<div class="state error">${t('project_not_found')}</div>`;
-    return;
-  }
+    function renderProjectChrome() {
+      const repoUrl = `https://github.com/${currentProject.owner}/${currentProject.repo}`;
+      document.getElementById('projectName').textContent = tField(currentProject.name);
+      document.getElementById('projectDescription').textContent = tField(currentProject.description);
+      document.getElementById('repoLinkFooter').href = repoUrl;
+      // document.getElementById('repoLinkFooter').textContent = `${currentProject.owner}/${currentProject.repo}`;
+      renderGallery();
+    }
 
-  renderProjectChrome();
-  await loadAndRenderProject(currentProject.key);
-}
+    function renderGallery() {
+      const section = document.getElementById('gallerySection');
+      const track = document.getElementById('gallery');
+      const items = currentProject.gallery;
 
-function renderProjectChrome() {
-  const repoUrl = `https://github.com/${currentProject.owner}/${currentProject.repo}`;
-  document.getElementById('projectName').textContent = tField(currentProject.name);
-  document.getElementById('repoLinkFooter').href = repoUrl;
-  document.getElementById('repoLinkFooter').textContent = `${currentProject.owner}/${currentProject.repo}`;
-  document.getElementById('tagline').textContent = tField(currentProject.description);
-  renderGallery();
-}
+      if (!items || items.length === 0) {
+        section.style.display = 'none';
+        return;
+      }
 
-function renderGallery() {
-  const section = document.getElementById('gallerySection');
-  const track = document.getElementById('gallery');
-  const items = currentProject.gallery;
-
-  if (!items || items.length === 0) {
-    section.style.display = 'none';
-    return;
-  }
-
-  section.style.display = 'block';
-  track.innerHTML = items.map(item => {
-    const caption = tField(item.caption);
-    const src = tField(item.src);
-    return `
+      section.style.display = 'block';
+      track.innerHTML = items.map(item => {
+        const caption = tField(item.caption);
+        const src = tField(item.src);
+        return `
       <div class="gallery-item">
         <img src="${src}" alt="${caption}" loading="lazy">
         <p class="gallery-caption">${caption}</p>
       </div>
     `;
-  }).join('');
-}
+      }).join('');
+    }
 
-function onLocaleChange() {
-  if (currentProject) {
-    renderProjectChrome();
-    loadAndRenderProject(currentProject.key);
-  }
-}
+    function onLocaleChange() {
+      if (currentProject) {
+        renderProjectChrome();
+        loadAndRenderProject(currentProject.key);
+      }
+    }
 
-init();
-</script>
+    init();
+  </script>
 
 </body>
+
 </html>

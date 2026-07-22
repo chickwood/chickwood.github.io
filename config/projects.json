@@ -1,55 +1,34 @@
 [
   {
-    "key": "project-a",
-    "owner": "your-username",
-    "repo": "your-repo-a",
+    "key": "2b67d10a",
+    "owner": "chickwood",
+    "repo": "NearestStationNotification",
     "name": {
-      "zh-CN": "项目 A",
-      "en": "Project A",
-      "ja": "プロジェクト A"
+      "zh-CN": "附近车站通知",
+      "en": "Nearest Station Notification",
+      "ja": "最寄り駅通知"
     },
     "description": {
-      "zh-CN": "在这里填一句项目简介",
-      "en": "A one-line description of this project",
-      "ja": "プロジェクトの簡単な説明"
+      "zh-CN": "根据当前定位查找距离最近的车站并显示通知。",
+      "en": "Finds the nearest station using your location and sends a notification.",
+      "ja": "現在地から最寄り駅を検索して通知する。"
     },
     "gallery": [
       {
         "src": { "zh-CN": "images/project-a/1-zh-CN.svg", "en": "images/project-a/1-en.svg", "ja": "images/project-a/1-ja.svg" },
-        "caption": { "zh-CN": "主界面", "en": "Dashboard", "ja": "ダッシュボード" }
+        "caption": { "zh-CN": "首页", "en": "Top", "ja": "トップ" }
       },
       {
         "src": { "zh-CN": "images/project-a/2-zh-CN.svg", "en": "images/project-a/2-en.svg", "ja": "images/project-a/2-ja.svg" },
-        "caption": { "zh-CN": "设置页面", "en": "Settings", "ja": "設定画面" }
+        "caption": { "zh-CN": "设置", "en": "Settings", "ja": "設定" }
+      },
+      {
+        "src": { "zh-CN": "images/project-a/2-zh-CN.svg", "en": "images/project-a/2-en.svg", "ja": "images/project-a/2-ja.svg" },
+        "caption": { "zh-CN": "设置", "en": "Settings", "ja": "設定" }
       },
       {
         "src": { "zh-CN": "images/project-a/3-zh-CN.svg", "en": "images/project-a/3-en.svg", "ja": "images/project-a/3-ja.svg" },
         "caption": { "zh-CN": "深色模式", "en": "Dark mode", "ja": "ダークモード" }
-      }
-    ]
-  },
-  {
-    "key": "project-b",
-    "owner": "your-username",
-    "repo": "your-repo-b",
-    "name": {
-      "zh-CN": "项目 B",
-      "en": "Project B",
-      "ja": "プロジェクト B"
-    },
-    "description": {
-      "zh-CN": "在这里填一句项目简介",
-      "en": "A one-line description of this project",
-      "ja": "プロジェクトの簡単な説明"
-    },
-    "gallery": [
-      {
-        "src": { "zh-CN": "images/project-b/1-zh-CN.svg", "en": "images/project-b/1-en.svg", "ja": "images/project-b/1-ja.svg" },
-        "caption": { "zh-CN": "首页", "en": "Home screen", "ja": "ホーム画面" }
-      },
-      {
-        "src": { "zh-CN": "images/project-b/2-zh-CN.svg", "en": "images/project-b/2-en.svg", "ja": "images/project-b/2-ja.svg" },
-        "caption": { "zh-CN": "编辑视图", "en": "Editor view", "ja": "エディター画面" }
       }
     ]
   }

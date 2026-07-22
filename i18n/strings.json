@@ -10,9 +10,9 @@
     "ja": "すべてのツール"
   },
   "projects_page_subtitle": {
-    "zh-CN": "选择一个工具查看详细内容",
-    "en": "Select a tool to view detail",
-    "ja": "一つ選んで詳細を見る"
+    "zh-CN": "选择一个工具查看详细",
+    "en": "Select one to view detail",
+    "ja": "一つを選んで詳細を見る"
   },
   "back_to_projects": {
     "zh-CN": "← 返回列表",
@@ -95,7 +95,7 @@
     "ja": "プロジェクトが見つかりません。"
   },
   "screenshots": {
-    "zh-CN": "项目截图",
+    "zh-CN": "截图",
     "en": "Screenshots",
     "ja": "スクリーンショット"
   },

@@ -6,8 +6,8 @@
   --text: #14161A;
   --muted: #6B7076;
   --border: #E2E3E0;
-  --accent: #FF5A1F;
-  --accent-soft: #FFF1EA;
+  --accent: #4080FF;
+  --accent-soft: #DCECFF;
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   --sans: 'Inter', -apple-system, sans-serif;
 }
@@ -62,11 +62,11 @@ header {
   gap: 10px;
 }
 
-header a.icon-link {
-  color: var(--muted);
+a.icon-link {
+  color: var(--accent);
   text-decoration: none;
-  font-size: 13px;
-  display: flex;
+  font-size: small;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   border: 1px solid var(--border);
@@ -75,9 +75,8 @@ header a.icon-link {
   transition: border-color .15s ease, color .15s ease;
 }
 
-header a.icon-link:hover {
-  border-color: var(--text);
-  color: var(--text);
+a.icon-link:hover {
+  background: var(--accent-soft);
 }
 
 /* language switcher */
@@ -145,10 +144,7 @@ header a.icon-link:hover {
 
 /* project menu (index.html) */
 .page-title {
-  /* font-family: var(--mono); */
-  /* font-weight:600; */
-  /* font-size: clamp(32px, 6vw, 44px); */
-  font-size: xx-large;
+  font-size: x-large;
   letter-spacing: -.02em;
   margin: 0 0 8px;
 }
@@ -205,11 +201,16 @@ header a.icon-link:hover {
 }
 
 /* project tagline + gallery (release.html) */
-.tagline {
-  font-size: 16px;
+.tagline-title {
+  font-size: x-large;
+  letter-spacing: -.02em;
+  margin: 0 0 8px;
+}
+
+.tagline-subtitle {
+  font-size: medium;
   color: var(--muted);
-  margin: -8px 0 32px;
-  max-width: 46ch;
+  margin: 0 0 40px;
 }
 
 .gallery-section {
@@ -424,8 +425,7 @@ header a.icon-link:hover {
 .tl-body {
   display: none;
   margin-top: 12px;
-  font-size: 13.5px;
-  color: #33363D;
+  font-size: smaller;
   white-space: pre-wrap;
   word-break: break-word;
 }
