@@ -10,19 +10,19 @@
     "ja": "すべてのツール"
   },
   "projects_page_subtitle": {
-    "zh-CN": "选择一个工具查看详细",
-    "en": "Select one to view detail",
-    "ja": "一つを選んで詳細を見る"
+    "zh-CN": "选择一个工具查看详细和下载",
+    "en": "Select one to view details and download",
+    "ja": "各ツールをクリックして詳細とダウンロードを見る"
   },
   "back_to_projects": {
     "zh-CN": "← 返回列表",
     "en": "← Back to list",
-    "ja": "← 一覧に戻る"
+    "ja": "← 一覧へ"
   },
   "view_detail": {
-    "zh-CN": "查看详细 →",
-    "en": "View detail →",
-    "ja": "詳細を見る →"
+    "zh-CN": "查看详细和下载 →",
+    "en": "View details and download →",
+    "ja": "詳細とダウンロードへ →"
   },
   "view_on_github": {
     "zh-CN": "在 GitHub 上查看",
