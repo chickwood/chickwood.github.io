@@ -15,19 +15,19 @@
     },
     "gallery": [
       {
-        "src": { "zh-CN": "images/project-a/1-zh-CN.svg", "en": "images/project-a/1-en.svg", "ja": "images/project-a/1-ja.svg" },
+        "src": { "zh-CN": "images/2b67d10a/1-zh-CN.svg", "en": "images/2b67d10a/1-en.svg", "ja": "images/2b67d10a/1-ja.svg" },
         "caption": { "zh-CN": "首页", "en": "Top", "ja": "トップ" }
       },
       {
-        "src": { "zh-CN": "images/project-a/2-zh-CN.svg", "en": "images/project-a/2-en.svg", "ja": "images/project-a/2-ja.svg" },
+        "src": { "zh-CN": "images/2b67d10a/2-zh-CN.svg", "en": "images/2b67d10a/2-en.svg", "ja": "images/2b67d10a/2-ja.svg" },
         "caption": { "zh-CN": "设置", "en": "Settings", "ja": "設定" }
       },
       {
-        "src": { "zh-CN": "images/project-a/2-zh-CN.svg", "en": "images/project-a/2-en.svg", "ja": "images/project-a/2-ja.svg" },
+        "src": { "zh-CN": "images/2b67d10a/2-zh-CN.svg", "en": "images/2b67d10a/2-en.svg", "ja": "images/2b67d10a/2-ja.svg" },
         "caption": { "zh-CN": "设置", "en": "Settings", "ja": "設定" }
       },
       {
-        "src": { "zh-CN": "images/project-a/3-zh-CN.svg", "en": "images/project-a/3-en.svg", "ja": "images/project-a/3-ja.svg" },
+        "src": { "zh-CN": "images/2b67d10a/3-zh-CN.svg", "en": "images/2b67d10a/3-en.svg", "ja": "images/2b67d10a/3-ja.svg" },
         "caption": { "zh-CN": "深色模式", "en": "Dark mode", "ja": "ダークモード" }
       }
     ]
