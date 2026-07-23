@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter&display=swap');
 
 :root {
   --bg: #F6F6F4;
@@ -44,8 +44,7 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 600;
-  font-size: 15px;
+  font-size: medium;
 }
 
 .brand .dot {
@@ -92,8 +91,7 @@ header {
 
 .lang-btn {
   font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: small;
   border: none;
   background: transparent;
   color: var(--muted);
@@ -183,7 +181,6 @@ header {
 }
 
 .project-card-name {
-  font-weight: 600;
   font-size: 16px;
   margin: 0 0 4px;
 }
@@ -269,7 +266,7 @@ header {
 /* hero (release.html) */
 .hero-version {
   font-family: var(--mono);
-  font-size: xx-large;
+  font-size: x-large;
   letter-spacing: -.02em;
   margin: 0 0 8px;
 }
@@ -286,51 +283,6 @@ header {
   margin-bottom: 28px;
 }
 
-.btn-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.btn {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 11px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid transparent;
-  transition: transform .12s ease, opacity .12s ease;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  opacity: .92;
-}
-
-.btn-ghost {
-  background: var(--panel);
-  color: var(--accent);
-  transition: border-color .15s ease, color .15s ease;
-  border-color: var(--border);
-}
-
-.btn-ghost:hover {
-  background: var(--accent-soft);
-}
-
 .assets {
   font-family: var(--mono);
   font-size: 12.5px;
@@ -342,6 +294,13 @@ header {
 }
 
 .assets a:hover {
+  color: var(--text);
+}
+
+.download-label {
+  margin-bottom: 4px;
+  font-family: var(--sans);
+  font-size: large;
   color: var(--text);
 }
 
@@ -402,7 +361,6 @@ header {
 
 .tl-tag {
   font-family: var(--mono);
-  font-weight: 600;
   font-size: 15px;
 }
 
@@ -482,7 +440,4 @@ footer a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn {
-    transition: none;
-  }
 }

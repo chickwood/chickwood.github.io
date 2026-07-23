@@ -22,20 +22,24 @@ function escapeHtml(str) {
 }
 
 function renderAssetsList(assets, htmlUrl) {
-  if (!assets || assets.length === 0) {
-    return `<div class="assets"><a href="${htmlUrl}" target="_blank" rel="noopener">${t('view_on_github')} →</a></div>`;
-  }
-  return `<div class="assets">${assets.map(a =>
-    `<div><a href="${a.url}" target="_blank" rel="noopener">${escapeHtml(a.name)}</a> — ${fmtSize(a.size)}</div>`
-  ).join('')}</div>`;
+  const files = assets && assets.length > 0
+    ? assets.map(a =>
+      `<div><a href="${a.url}" target="_blank" rel="noopener">${escapeHtml(a.name)}</a> — ${fmtSize(a.size)}</div>`
+    ).join('')
+    : '';
+  return `
+    <div class="assets">
+      <div class="download-label">${t('download')}</div>
+      ${files}
+    </div>
+    <div class="tl-assets"><a href="${htmlUrl}" target="_blank" rel="noopener">${t('view_changelog')} →</a></div>
+  `;
 }
 
 function renderHero(release) {
   const tag = escapeHtml(release.tag || release.name || '');
   const title = release.name && release.name !== release.tag ? escapeHtml(release.name) : '';
   const date = fmtDate(release.published_at);
-  const primaryAsset = release.assets && release.assets[0];
-  const downloadHref = primaryAsset ? primaryAsset.url : release.html_url;
   const body = release.body ? escapeHtml(release.body) : t('no_changelog');
 
   return `
@@ -43,10 +47,6 @@ function renderHero(release) {
     <h1 class="hero-version">${tag}</h1>
     ${title ? `<p class="hero-title">${title}</p>` : ''}
     <p><span class="hero-meta">${t('released_on')} <time class="mono-txt">${date}</time></span></p>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="${downloadHref}" target="_blank" rel="noopener">${primaryAsset ? t('download') : t('download_page')}</a>
-      <a class="btn btn-ghost" href="${release.html_url}" target="_blank" rel="noopener">${t('view_changelog')}</a>
-    </div>
     ${renderAssetsList(release.assets, release.html_url)}
     <div class="body-md">${body}</div>
   `;

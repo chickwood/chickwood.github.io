@@ -10,9 +10,9 @@
     "ja": "すべてのツール"
   },
   "projects_page_subtitle": {
-    "zh-CN": "点击工具查看详细和下载",
-    "en": "Click to view details and download",
-    "ja": "各ツールをクリックして詳細とダウンロードを確認する"
+    "zh-CN": "点击工具查看详细和下载。",
+    "en": "Click to view details and download.",
+    "ja": "各ツールをクリックして詳細とダウンロードを確認する。"
   },
   "back_to_projects": {
     "zh-CN": "<- 返回列表",
@@ -43,11 +43,6 @@
     "zh-CN": "下载",
     "en": "Download",
     "ja": "ダウンロード"
-  },
-  "download_page": {
-    "zh-CN": "下载页面",
-    "en": "Download page",
-    "ja": "ダウンロードページ"
   },
   "view_changelog": {
     "zh-CN": "查看更新日志",
@@ -105,8 +100,8 @@
     "ja": "データ更新日"
   },
   "footer_note": {
-    "zh-CN": "本页数据随新版本发布自动更新",
-    "en": "Data updates automatically with each new release",
-    "ja": "このページのデータは、新規リリース公開時に自動更新される"
+    "zh-CN": "本页面内容随新版本发布自动更新。",
+    "en": "This page updates automatically with each new release.",
+    "ja": "このページは新規リリース公開時に自動更新される。"
   }
 }
