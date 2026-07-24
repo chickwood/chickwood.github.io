@@ -25,9 +25,9 @@
     "ja": "詳細とダウンロードへ ->"
   },
   "view_on_github": {
-    "zh-CN": "在 GitHub 上查看",
-    "en": "View on GitHub",
-    "ja": "GitHub で見る"
+    "zh-CN": "在 GitHub 上查看 ->",
+    "en": "View on GitHub ->",
+    "ja": "GitHub で見る ->"
   },
   "latest_release": {
     "zh-CN": "最新版本",
@@ -45,14 +45,14 @@
     "ja": "ダウンロード"
   },
   "view_changelog": {
-    "zh-CN": "查看更新日志",
-    "en": "View changelog",
-    "ja": "変更履歴を見る"
+    "zh-CN": "查看更新日志 ->",
+    "en": "View changelog ->",
+    "ja": "変更履歴を見る ->"
   },
   "previous_releases": {
     "zh-CN": "历史版本",
     "en": "Previous releases",
-    "ja": "過去のリリース"
+    "ja": "リリース履歴"
   },
   "expand": {
     "zh-CN": "展开 +",

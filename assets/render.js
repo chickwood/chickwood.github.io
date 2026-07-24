@@ -32,63 +32,37 @@ function renderAssetsList(assets, htmlUrl) {
       <div class="download-label">${t('download')}</div>
       ${files}
     </div>
-    <div class="tl-assets"><a href="${htmlUrl}" target="_blank" rel="noopener">${t('view_changelog')} →</a></div>
+    <div class="tl-assets"><a href="${htmlUrl}" target="_blank" rel="noopener">${t('view_changelog')}</a></div>
   `;
 }
 
 function renderHero(release) {
   const tag = escapeHtml(release.tag || release.name || '');
-  const title = release.name && release.name !== release.tag ? escapeHtml(release.name) : '';
   const date = fmtDate(release.published_at);
-  const body = release.body ? escapeHtml(release.body) : t('no_changelog');
 
   return `
     <p class="eyebrow">${t('latest_release')}</p>
     <h1 class="hero-version">${tag}</h1>
-    ${title ? `<p class="hero-title">${title}</p>` : ''}
     <p><span class="hero-meta">${t('released_on')} <time class="mono-txt">${date}</time></span></p>
     ${renderAssetsList(release.assets, release.html_url)}
-    <div class="body-md">${body}</div>
   `;
 }
 
 function renderTimeline(releases) {
-  const items = releases.map((r, i) => {
+  const items = releases.map(r => {
     const tag = escapeHtml(r.tag || r.name || '');
-    const title = r.name && r.name !== r.tag ? escapeHtml(r.name) : '';
     const date = fmtDate(r.published_at);
-    const body = r.body ? escapeHtml(r.body) : t('no_changelog');
     return `
       <div class="tl-item">
-        <div class="tl-row" data-idx="${i}">
-          <span class="tl-tag">${tag}</span>
+        <div class="tl-row">
+          <a class="tl-tag" href="${r.html_url}" target="_blank" rel="noopener">${tag}</a>
           <span class="tl-date">${date}</span>
-          <span class="tl-toggle">${t('expand')}</span>
-          ${title ? `<span class="tl-title">${title}</span>` : ''}
-        </div>
-        <div class="tl-body" id="tl-body-${i}">
-          ${body}
-          <div class="tl-assets">${(r.assets || []).map(a =>
-            `<div><a href="${a.url}" target="_blank" rel="noopener">${escapeHtml(a.name)}</a> — ${fmtSize(a.size)}</div>`
-          ).join('') || `<a href="${r.html_url}" target="_blank" rel="noopener">${t('view_on_github')} →</a>`}</div>
         </div>
       </div>
     `;
   }).join('');
 
-  return `<p class="section-label">${t('previous_releases')}</p><div class="timeline">${items}</div>`;
-}
-
-function bindToggles() {
-  document.querySelectorAll('.tl-row').forEach(row => {
-    row.addEventListener('click', () => {
-      const idx = row.getAttribute('data-idx');
-      const body = document.getElementById(`tl-body-${idx}`);
-      const toggle = row.querySelector('.tl-toggle');
-      const isOpen = body.classList.toggle('open');
-      toggle.textContent = isOpen ? t('collapse') : t('expand');
-    });
-  });
+  return `<p class="section-label previous-releases-label">${t('previous_releases')}</p><div class="timeline">${items}</div>`;
 }
 
 // 加载并渲染指定项目的发布数据
@@ -114,7 +88,6 @@ async function loadAndRenderProject(projectKey) {
 
     const [latest, ...rest] = data.releases;
     contentEl.innerHTML = renderHero(latest) + (rest.length ? renderTimeline(rest) : '');
-    bindToggles();
   } catch (err) {
     contentEl.innerHTML = `<div class="state error">${t('load_error')}</div>`;
   }

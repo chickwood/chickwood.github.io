@@ -112,12 +112,11 @@ header {
 
 /* eyebrow / section labels */
 .eyebrow {
-  /* font-family: var(--mono); */
   font-size: small;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 12px;
+  margin: 0 0 20px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -139,6 +138,23 @@ header {
   text-transform: uppercase;
   color: var(--muted);
   margin: 64px 0 24px;
+}
+
+.previous-releases-label {
+  letter-spacing: .08em;
+  margin: 40px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.previous-releases-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--muted);
+  border-radius: 50%;
+  display: inline-block;
 }
 
 /* project menu (index.html) */
@@ -271,12 +287,6 @@ header {
   margin: 0 0 8px;
 }
 
-.hero-title {
-  font-size: 17px;
-  color: var(--muted);
-  margin: 0 0 24px;
-}
-
 .hero-meta {
   font-size: small;
   color: var(--muted);
@@ -304,16 +314,6 @@ header {
   color: var(--text);
 }
 
-.body-md {
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-  font-size: 14.5px;
-  color: #33363D;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
 /* timeline */
 .timeline {
   position: relative;
@@ -332,7 +332,7 @@ header {
 
 .tl-item {
   position: relative;
-  padding-bottom: 28px;
+  padding-bottom: 8px;
 }
 
 .tl-item:last-child {
@@ -356,42 +356,23 @@ header {
   align-items: baseline;
   gap: 12px;
   flex-wrap: wrap;
-  cursor: pointer;
 }
 
 .tl-tag {
+  color: var(--text);
+  text-decoration: none;
   font-family: var(--mono);
   font-size: 15px;
+}
+
+.tl-tag:hover {
+  color: var(--accent);
 }
 
 .tl-date {
   font-family: var(--mono);
   font-size: 12px;
   color: var(--muted);
-}
-
-.tl-title {
-  font-size: 13.5px;
-  color: var(--muted);
-  flex-basis: 100%;
-}
-
-.tl-toggle {
-  margin-left: auto;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.tl-body {
-  display: none;
-  margin-top: 12px;
-  font-size: smaller;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.tl-body.open {
-  display: block;
 }
 
 .tl-assets {
@@ -420,7 +401,7 @@ header {
 }
 
 footer {
-  margin-top: 80px;
+  margin-top: 48px;
   padding-top: 20px;
   border-top: 1px solid var(--border);
   font-size: smaller;
@@ -439,5 +420,4 @@ footer a {
   font-family: var(--mono);
 }
 
-@media (prefers-reduced-motion: reduce) {
-}
+@media (prefers-reduced-motion: reduce) {}

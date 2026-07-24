@@ -27,7 +27,7 @@ for (const project of projects) {
     const res = await fetch(url, { headers });
 
     if (!res.ok) {
-      console.error(`[${key}] 请求失败：${owner}/${repo} → HTTP ${res.status}`);
+      console.error(`[${key}] 请求失败：${owner}/${repo} -> HTTP ${res.status}`);
       hasErrors = true;
       continue;
     }
