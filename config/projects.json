@@ -15,20 +15,28 @@
     },
     "gallery": [
       {
-        "src": { "zh-CN": "images/2b67d10a/1-zh-CN.svg", "en": "images/2b67d10a/1-en.svg", "ja": "images/2b67d10a/1-ja.svg" },
+        "src": { "zh-CN": "images/2b67d10a/1-zh-CN.svg", "en": "images/2b67d10a/1-top-en.png", "ja": "images/2b67d10a/1-ja.svg" },
         "caption": { "zh-CN": "首页", "en": "Top", "ja": "トップ" }
       },
       {
-        "src": { "zh-CN": "images/2b67d10a/2-zh-CN.svg", "en": "images/2b67d10a/2-en.svg", "ja": "images/2b67d10a/2-ja.svg" },
+        "src": { "zh-CN": "images/2b67d10a/2-zh-CN.svg", "en": "images/2b67d10a/2-list-en.png", "ja": "images/2b67d10a/2-ja.svg" },
+        "caption": { "zh-CN": "附近车站列表", "en": "Nearby Stations", "ja": "最寄り駅一覧" }
+      },
+      {
+        "src": { "zh-CN": "images/2b67d10a/3-zh-CN.svg", "en": "images/2b67d10a/3-notification-en.png", "ja": "images/2b67d10a/3-ja.svg" },
+        "caption": { "zh-CN": "通知", "en": "Notification", "ja": "通知" }
+      },
+      {
+        "src": { "zh-CN": "images/2b67d10a/2-zh-CN.svg", "en": "images/2b67d10a/4-settings-en.png", "ja": "images/2b67d10a/2-ja.svg" },
         "caption": { "zh-CN": "设置", "en": "Settings", "ja": "設定" }
       },
       {
-        "src": { "zh-CN": "images/2b67d10a/2-zh-CN.svg", "en": "images/2b67d10a/2-en.svg", "ja": "images/2b67d10a/2-ja.svg" },
-        "caption": { "zh-CN": "设置", "en": "Settings", "ja": "設定" }
+        "src": { "zh-CN": "images/2b67d10a/2-zh-CN.svg", "en": "images/2b67d10a/5-3button-en.png", "ja": "images/2b67d10a/2-ja.svg" },
+        "caption": { "zh-CN": "3 按钮", "en": "3-Button Navigation", "ja": "3 ボタン" }
       },
       {
-        "src": { "zh-CN": "images/2b67d10a/3-zh-CN.svg", "en": "images/2b67d10a/3-en.svg", "ja": "images/2b67d10a/3-ja.svg" },
-        "caption": { "zh-CN": "深色模式", "en": "Dark mode", "ja": "ダークモード" }
+        "src": { "zh-CN": "images/2b67d10a/3-zh-CN.svg", "en": "images/2b67d10a/6-status-en.png", "ja": "images/2b67d10a/3-ja.svg" },
+        "caption": { "zh-CN": "当前状态（分2阶段展示）", "en": "Current Status (2-Steps)", "ja": "現在状態（2段階表示）" }
       }
     ]
   }

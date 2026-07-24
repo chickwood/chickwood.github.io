@@ -4,7 +4,7 @@
    - 只翻译界面文案；release 的更新说明正文不翻译 */
 
 const SUPPORTED_LOCALES = ['zh-CN', 'ja', 'en'];
-const LOCALE_LABELS = { 'zh-CN': '中文', 'ja': '日本語', 'en': 'English' };
+const LOCALE_LABELS = { 'zh-CN': '中', 'ja': '日', 'en': 'En' };
 
 function detectLocale() {
   const stored = localStorage.getItem('site-locale');

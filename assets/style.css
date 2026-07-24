@@ -116,7 +116,7 @@ header {
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 20px;
+  margin: 0 0 12px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -137,13 +137,13 @@ header {
   /* letter-spacing:.08em; */
   text-transform: uppercase;
   color: var(--muted);
-  margin: 64px 0 24px;
+  margin: 64px 0 12px;
 }
 
 .previous-releases-label {
   cursor: pointer;
   letter-spacing: .08em;
-  margin: 40px 0 16px;
+  margin: 24px 0 16px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -187,10 +187,15 @@ header {
   text-decoration: none;
   color: var(--text);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   transition: background .15s ease;
+}
+
+.project-card > div {
+  flex: 0 0 100%;
 }
 
 .project-card:hover {
@@ -213,6 +218,7 @@ header {
   color: var(--accent);
   white-space: nowrap;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 /* project tagline + gallery (release.html) */
@@ -225,11 +231,11 @@ header {
 .tagline-subtitle {
   font-size: medium;
   color: var(--muted);
-  margin: 0 0 40px;
+  margin: 0 0 24px;
 }
 
 .gallery-section {
-  margin: 0 0 48px;
+  margin: 0 0 24px;
 }
 
 .gallery {
@@ -238,9 +244,9 @@ header {
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 14px;
-  margin: 0 -24px;
-  padding-left: 24px;
-  padding-right: 24px;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
 }
@@ -260,14 +266,14 @@ header {
 
 .gallery-item {
   flex: 0 0 auto;
-  width: min(78vw, 340px);
+  width: min(30vw, 180px);
   scroll-snap-align: start;
 }
 
 .gallery-item img {
   width: 100%;
-  aspect-ratio: 8 / 5;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
   border-radius: 10px;
   border: 1px solid var(--border);
@@ -291,7 +297,7 @@ header {
 .hero-meta {
   font-size: small;
   color: var(--muted);
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 }
 
 .assets {
@@ -402,8 +408,8 @@ header {
 }
 
 footer {
-  margin-top: 48px;
-  padding-top: 20px;
+  margin-top: 32px;
+  padding-top: 12px;
   border-top: 1px solid var(--border);
   font-size: smaller;
   color: var(--muted);

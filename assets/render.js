@@ -43,7 +43,7 @@ function renderHero(release) {
   return `
     <p class="eyebrow">${t('latest_release')}</p>
     <h1 class="hero-version">${tag}</h1>
-    <p><span class="hero-meta">${t('released_on')} <time class="mono-txt">${date}</time></span></p>
+    <div class="hero-meta">${t('released_on')} <time class="mono-txt">${date}</time></div>
     ${renderAssetsList(release.assets, release.html_url)}
   `;
 }
