@@ -124,8 +124,8 @@ header {
 
 .eyebrow::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: var(--accent);
   border-radius: 50%;
   display: inline-block;
@@ -141,6 +141,7 @@ header {
 }
 
 .previous-releases-label {
+  cursor: pointer;
   letter-spacing: .08em;
   margin: 40px 0 16px;
   display: flex;
@@ -150,8 +151,8 @@ header {
 
 .previous-releases-label::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: var(--muted);
   border-radius: 50%;
   display: inline-block;
@@ -324,7 +325,7 @@ header {
   content: '';
   position: absolute;
   left: 5px;
-  top: 6px;
+  top: 8px;
   bottom: 6px;
   width: 1px;
   background: var(--border);
@@ -342,10 +343,10 @@ header {
 .tl-item::before {
   content: '';
   position: absolute;
-  left: -24px;
-  top: 6px;
-  width: 9px;
-  height: 9px;
+  left: -22px;
+  top: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--bg);
   border: 1px solid var(--muted);
@@ -362,7 +363,7 @@ header {
   color: var(--text);
   text-decoration: none;
   font-family: var(--mono);
-  font-size: 15px;
+  font-size: smaller;
 }
 
 .tl-tag:hover {
@@ -371,7 +372,7 @@ header {
 
 .tl-date {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: x-small;
   color: var(--muted);
 }
 

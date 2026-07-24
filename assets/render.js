@@ -62,7 +62,33 @@ function renderTimeline(releases) {
     `;
   }).join('');
 
-  return `<p class="section-label previous-releases-label">${t('previous_releases')}</p><div class="timeline">${items}</div>`;
+  return `
+    <p class="section-label previous-releases-label" role="button" tabindex="0" aria-expanded="false">
+      ${t('previous_releases')} ▾
+    </p>
+    <div class="timeline previous-releases-list" hidden>${items}</div>
+  `;
+}
+
+function bindPreviousReleasesToggle() {
+  const toggle = document.querySelector('.previous-releases-label');
+  const list = document.querySelector('.previous-releases-list');
+  if (!toggle || !list) return;
+
+  const toggleList = () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    list.hidden = expanded;
+    toggle.textContent = expanded ? t('previous_releases') + ' ▾' : t('previous_releases') + ' ▸';
+  };
+
+  toggle.addEventListener('click', toggleList);
+  toggle.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleList();
+    }
+  });
 }
 
 // 加载并渲染指定项目的发布数据
@@ -88,6 +114,7 @@ async function loadAndRenderProject(projectKey) {
 
     const [latest, ...rest] = data.releases;
     contentEl.innerHTML = renderHero(latest) + (rest.length ? renderTimeline(rest) : '');
+    bindPreviousReleasesToggle();
   } catch (err) {
     contentEl.innerHTML = `<div class="state error">${t('load_error')}</div>`;
   }
