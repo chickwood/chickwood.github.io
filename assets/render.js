@@ -1,4 +1,4 @@
-/* 读取 data/<project>.json（由 GitHub Action 定时生成），渲染发布页
+/* 读取 data/<project>.json（由 GitHub Action 生成），渲染发布页
    依赖 assets/i18n.js 提供的 t() 函数 */
 
 function fmtDate(iso) {

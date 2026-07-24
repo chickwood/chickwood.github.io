@@ -1,5 +1,5 @@
 // 读取 config/projects.json 里的项目列表，抓取每个项目的 release 数据，
-// 写成 data/<project-key>.json。由 .github/workflows/update-releases.yml 定时调用。
+// 写成 data/<project-key>.json。由 .github/workflows/update-releases.yml 调用。
 // 依赖 Node 18+ 内置的 fetch，不需要额外安装依赖。
 
 import { readFile, writeFile, mkdir } from 'fs/promises';

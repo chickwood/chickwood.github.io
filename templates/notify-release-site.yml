@@ -36,7 +36,7 @@ jobs:
 # 1. GitHub 右上角头像 → Settings → Developer settings → Personal access tokens
 #    → Fine-grained tokens → Generate new token
 # 2. Repository access 选 "Only select repositories"，只勾发布页那个仓库
-# 3. Permissions 里找到 "Actions"，设成 "Read and write"
+# 3. Permissions 里找到 "Contents"，设成 "Read and write"
 # 4. 生成后复制 token
 # 5. 回到 project-a（这个项目仓库）→ Settings → Secrets and variables → Actions
 #    → New repository secret → 名字填 SITE_DISPATCH_TOKEN，值粘贴刚才的 token

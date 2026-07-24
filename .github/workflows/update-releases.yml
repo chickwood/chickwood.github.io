@@ -1,8 +1,8 @@
 name: Update release data
 
 on:
-  # schedule:
-  #   # 每 6 小时跑一次；想恢复定时任务，取消注释这两行即可（cron 是 UTC 时间）
+  # schedule: # 取消注释恢复定时任务（cron 是 UTC 时间）
+  #   # 每 6 小时跑一次
   #   - cron: '0 */6 * * *'
   workflow_dispatch: {}   # 允许在 Actions 页面手动点一下立即触发
   repository_dispatch:
@@ -16,17 +16,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Fetch releases
         run: node scripts/fetch-releases.mjs
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASES_READ_TOKEN }}
 
       - name: Commit and push if changed
         run: |
