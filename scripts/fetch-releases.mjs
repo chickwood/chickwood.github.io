@@ -6,12 +6,18 @@ import { readFile, writeFile, mkdir } from 'fs/promises';
 
 const projects = JSON.parse(await readFile('config/projects.json', 'utf-8'));
 
-await mkdir('data', { recursive: true });
-
-const headers = { Accept: 'application/vnd.github+json' };
-if (process.env.GITHUB_TOKEN) {
-  headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+const token = process.env.GITHUB_TOKEN;
+if (!token) {
+  console.error('缺少 GITHUB_TOKEN，无法读取私有仓库的 release 数据');
+  process.exit(1);
 }
+
+const headers = {
+  Accept: 'application/vnd.github+json',
+  Authorization: `Bearer ${token}`,
+};
+const outputFiles = new Map();
+let hasErrors = false;
 
 for (const project of projects) {
   const { key, owner, repo } = project;
@@ -22,10 +28,7 @@ for (const project of projects) {
 
     if (!res.ok) {
       console.error(`[${key}] 请求失败：${owner}/${repo} → HTTP ${res.status}`);
-      await writeFile(
-        `data/${key}.json`,
-        JSON.stringify({ updatedAt: new Date().toISOString(), error: `HTTP ${res.status}`, releases: [] }, null, 2)
-      );
+      hasErrors = true;
       continue;
     }
 
@@ -44,13 +47,25 @@ for (const project of projects) {
       })),
     }));
 
-    await writeFile(
+    outputFiles.set(
       `data/${key}.json`,
       JSON.stringify({ updatedAt: new Date().toISOString(), releases: simplified }, null, 2)
     );
 
-    console.log(`[${key}] 已写入 data/${key}.json（${simplified.length} 个 release）`);
+    console.log(`[${key}] 已获取 ${simplified.length} 个 release`);
   } catch (err) {
     console.error(`[${key}] 出错：${err.message}`);
+    hasErrors = true;
+  }
+}
+
+if (hasErrors) {
+  console.error('部分项目抓取失败，已保留现有 data 文件');
+  process.exitCode = 1;
+} else {
+  await mkdir('data', { recursive: true });
+  for (const [file, content] of outputFiles) {
+    await writeFile(file, content);
+    console.log(`已写入 ${file}`);
   }
 }

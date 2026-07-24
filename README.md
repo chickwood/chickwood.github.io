@@ -1,14 +1,14 @@
 # 多项目 Release 发布站
 
 纯静态站点，支持：
-- 项目菜单（当前配了占位项目，可以加更多）
+- 可配置多个项目的项目菜单
 - 每个项目独立的 release 发布页
 - 中(简)/日/英三语界面，根据浏览器语言自动切换，也可手动切换并记住选择
 - release 数据由 **GitHub Actions 任务**抓取并写成静态 JSON，页面本身不直接调用 GitHub API
 
 ## 1. 配置项目
 
-打开 `config/projects.json`，把占位项目改成自己的：
+打开 `config/projects.json`，配置需要展示的项目：
 
 - `key`：内部标识，需要与 `data/` 中的文件名对应
 - `owner`：GitHub 用户名或组织名
@@ -25,7 +25,7 @@
 ```
 
 - `key` 要和 `data/` 目录下对应的 JSON 文件名一致（比如 `key: "project-a"` 对应 `data/project-a.json`）
-- 如果要加第三个、第四个项目，在数组里多加一项，`data/` 里对应加一个空的占位 JSON 就行（格式参考已有文件），第一次跑完 Action 后会自动填上真实数据
+- 添加项目时只需在数组中增加配置。首次成功运行更新任务后，会自动生成对应的 `data/<key>.json`
 
 ## 2. 本地预览
 
@@ -47,9 +47,37 @@ npx serve .
 
 或者其他 Nginx、Apache HTTPd 均可。
 
-`data/` 目录里已经放了示例数据，本地打开就能直接看到效果，正式跑起任务后会被真实数据覆盖。
+`data/` 目录保存最近一次任务生成的 release 数据，因此本地预览不需要直接访问 GitHub API。
 
-## 3. 让项目发布 release 时自动触发更新
+## 3. 手动更新私有仓库的 release 数据
+
+当前可以通过 release-site 仓库的 `workflow_dispatch` 手动更新所有项目。由于源项目是私有仓库，需要先配置一个只读的 Fine-grained personal access token。
+
+### 3.1 在 GitHub 账户设置中创建 Token
+
+1. 打开 GitHub 右上角头像 → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**
+2. `Repository access` 选择 **Only select repositories**
+3. 勾选所有需要读取 release 的私有源项目仓库
+4. 在 `Repository permissions` 中将 **Contents** 设置为 **Read-only**
+5. 生成后立即复制 Token
+
+Token name 只用于账户内识别，例如可填写 `release-site-read-releases`。
+
+### 3.2 在 release-site 仓库中添加 Secret
+
+1. 进入 release-site 仓库 → **Settings → Secrets and variables → Actions**
+2. 在 `Repository secrets` 中选择 **New repository secret**
+3. Name 填写 `RELEASES_READ_TOKEN`
+4. Secret 粘贴上一步生成的 Token
+
+设置完成后，进入 release-site 仓库的 **Actions → Update release data → Run workflow**，即可手动抓取数据。抓取步骤通过以下配置读取该 Secret：
+
+```yaml
+env:
+  GITHUB_TOKEN: ${{ secrets.RELEASES_READ_TOKEN }}
+```
+
+## 4. 让项目发布 release 时自动触发更新
 
 `.github/workflows/update-releases.yml` 现在有多种触发方式：
 
@@ -57,28 +85,29 @@ npx serve .
 - **手动触发**：Actions 标签页点 "Run workflow"
 - **被动触发**：收到 `repository_dispatch` 事件（`release-published`）时自动跑
 
-要让 project-a、project-b 发布 release 时"喊一声"通知这边更新，需要在**每个项目仓库**里配置：
+要让源项目发布 release 时主动通知 release-site 更新，需要在**每个源项目仓库**里配置：
 
 1. 把 `templates/notify-release-site.yml` 复制到项目仓库的 `.github/workflows/` 目录下
 2. 文件里把 `REPO_OWNER/SITE_REPO` 换成发布页仓库的实际路径（比如 `your-username/release-site`）
 3. 按文件末尾"关于 Token"的步骤，生成一个 Fine-grained token，加到项目仓库的 secret `SITE_DISPATCH_TOKEN` 里
-4. project-a、project-b 都各自加一遍（token 可以复用同一个）
+4. 在其他源项目仓库中重复以上设置（token 可以复用）
 
 配置完之后，任何一个项目发布新 release，都会自动触发发布页仓库重新抓取数据、更新页面，不用再手动点或者等定时任务。
 
-## 4. 开启定时任务（可选，GitHub Actions）
+## 5. 开启定时任务（可选，GitHub Actions）
 
-1. 把整个 `release-site` 目录内容推到你的 GitHub Pages 仓库
-2. 进入仓库 **Settings → Actions → General → Workflow permissions**，选择 **Read and write permissions**（否则 Action 无法把抓到的数据提交回仓库）
-3. 推送后，Action 会按 `.github/workflows/update-releases.yml` 里配置的时间自动跑（默认每 6 小时一次），也可以在 **Actions** 标签页手动点 **Run workflow** 立即触发
-4. 想改频率，改这个文件里的 cron 表达式：
+定时任务当前默认关闭。需要启用时，取消 `.github/workflows/update-releases.yml` 中 `schedule` 部分的注释：
 
-   ```yaml
-   schedule:
-     - cron: '0 */6 * * *'   # 每 6 小时；改成 '0 0 * * *' 就是每天一次（UTC 时间）
-   ```
+```yaml
+schedule:
+  - cron: '0 */6 * * *'   # 每 6 小时；改成 '0 0 * * *' 就是每天一次（UTC 时间）
+```
 
-## 5. 部署到 GitHub Pages
+cron 使用 UTC 时间。启用并推送后，任务才会按配置的时间运行；在此之前只会响应手动触发或 `repository_dispatch`。
+
+仓库的 **Settings → Actions → General → Workflow permissions** 需要允许工作流写入仓库，否则任务无法提交更新后的 `data/`。
+
+## 6. 部署到 GitHub Pages
 
 仓库 **Settings → Pages**，选择对应分支/目录作为发布源即可。访问地址形如：
 
@@ -98,12 +127,12 @@ https://<你的用户名>.github.io/<仓库名>/
 
   ```json
   {
-    "src": { "zh-CN": "images/project-a/1-zh-CN.svg", "en": "images/project-a/1-en.svg", "ja": "images/project-a/1-ja.svg" },
+    "src": { "zh-CN": "images/example-project/1-zh-CN.svg", "en": "images/example-project/1-en.svg", "ja": "images/example-project/1-ja.svg" },
     "caption": { "zh-CN": "主界面", "en": "Dashboard", "ja": "ダッシュボード" }
   }
   ```
 
-  用户切换语言时，图片和说明文字会一起换成对应语言的版本。把 `images/project-a/`、`images/project-b/` 里的占位 SVG 换成真实的三语截图即可，文件名可以自己定，改好路径对应上 `src` 就行。想加减截图数量，直接在 `gallery` 数组里加减条目（建议 2~5 张）。
+  用户切换语言时，图片和说明文字会一起换成对应语言的版本。每个项目的图片建议放在独立的 `images/<project-key>/` 目录中，文件名可以自行确定，只需让 `src` 与实际路径一致。想加减截图数量，直接在 `gallery` 数组里加减条目（建议 2~5 张）。
 
 - **release 的更新说明正文不做翻译**，原样显示 GitHub Release 里写的内容
 - 项目名称、项目简介（`config/projects.json` 里的 `name` / `description`）也是按语言分字段的，需要手动维护三份
