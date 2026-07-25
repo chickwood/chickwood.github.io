@@ -76,7 +76,7 @@
     function renderGallery() {
       const section = document.getElementById('gallerySection');
       const track = document.getElementById('gallery');
-      const items = currentProject.gallery;
+      const items = currentProject.gallery[currentLocale] || currentProject.gallery.en || [];
 
       if (!items || items.length === 0) {
         section.style.display = 'none';
@@ -85,8 +85,8 @@
 
       section.style.display = 'block';
       track.innerHTML = items.map(item => {
-        const caption = tField(item.caption);
-        const src = tField(item.src);
+        const caption = item.caption;
+        const src = item.src;
         return `
       <div class="gallery-item">
         <img src="${src}" alt="${caption}" loading="lazy">

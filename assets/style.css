@@ -113,7 +113,6 @@ header {
 /* eyebrow / section labels */
 .eyebrow {
   font-size: small;
-  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--accent);
   margin: 0 0 12px;
@@ -132,9 +131,7 @@ header {
 }
 
 .section-label {
-  /* font-family: var(--mono); */
   font-size: small;
-  /* letter-spacing:.08em; */
   text-transform: uppercase;
   color: var(--muted);
   margin: 64px 0 12px;
@@ -142,7 +139,6 @@ header {
 
 .previous-releases-label {
   cursor: pointer;
-  letter-spacing: .08em;
   margin: 24px 0 16px;
   display: flex;
   align-items: center;
@@ -161,7 +157,6 @@ header {
 /* project menu (index.html) */
 .page-title {
   font-size: x-large;
-  letter-spacing: -.02em;
   margin: 0 0 8px;
 }
 
@@ -224,7 +219,6 @@ header {
 /* project tagline + gallery (release.html) */
 .tagline-title {
   font-size: x-large;
-  letter-spacing: -.02em;
   margin: 0 0 8px;
 }
 
@@ -290,7 +284,6 @@ header {
 .hero-version {
   font-family: var(--mono);
   font-size: x-large;
-  letter-spacing: -.02em;
   margin: 0 0 8px;
 }
 

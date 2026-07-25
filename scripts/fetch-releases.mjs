@@ -34,17 +34,16 @@ for (const project of projects) {
 
     const releases = await res.json();
 
-    const simplified = releases.map(r => ({
+    const simplified = releases.map((r, index) => ({
       tag: r.tag_name,
       name: r.name,
-      body: r.body,
       published_at: r.published_at || r.created_at,
       html_url: r.html_url,
-      assets: (r.assets || []).map(a => ({
+      assets: index === 0 ? (r.assets || []).map(a => ({
         name: a.name,
         size: a.size,
-        url: a.browser_download_url,
-      })),
+        url: `https://downloads.w57.name/${key}/${encodeURIComponent(a.name)}`,
+      })) : [],
     }));
 
     outputFiles.set(

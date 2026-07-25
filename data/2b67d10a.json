@@ -4,7 +4,6 @@
     {
       "tag": "v1.1.2-20260713",
       "name": "Release v1.1.2-20260713",
-      "body": "**Full Changelog**: https://github.com/chickwood/NearestStationNotification/compare/v1.1.1-20260713...v1.1.2-20260713",
       "published_at": "2026-07-23T13:21:12Z",
       "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.1.2-20260713",
       "assets": [
@@ -33,118 +32,30 @@
     {
       "tag": "v1.1.1-20260713",
       "name": "Release v1.1.1-20260713",
-      "body": "**Full Changelog**: https://github.com/chickwood/NearestStationNotification/compare/v1.1.0-20260713...v1.1.1-20260713",
       "published_at": "2026-07-22T14:34:42Z",
       "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.1.1-20260713",
-      "assets": [
-        {
-          "name": "app-arm64-v8a-release.apk",
-          "size": 17517383,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.1-20260713/app-arm64-v8a-release.apk"
-        },
-        {
-          "name": "app-armeabi-v7a-release.apk",
-          "size": 14815325,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.1-20260713/app-armeabi-v7a-release.apk"
-        },
-        {
-          "name": "app-release.apk",
-          "size": 47713212,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.1-20260713/app-release.apk"
-        },
-        {
-          "name": "app-x86_64-release.apk",
-          "size": 18926058,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.1-20260713/app-x86_64-release.apk"
-        }
-      ]
+      "assets": []
     },
     {
       "tag": "v1.1.0-20260713",
       "name": "Release v1.1.0-20260713",
-      "body": "**Full Changelog**: https://github.com/chickwood/NearestStationNotification/compare/v1.0.0-20260618-3...v1.1.0-20260713",
       "published_at": "2026-07-18T17:31:47Z",
       "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.1.0-20260713",
-      "assets": [
-        {
-          "name": "app-arm64-v8a-release.apk",
-          "size": 17517415,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.0-20260713/app-arm64-v8a-release.apk"
-        },
-        {
-          "name": "app-armeabi-v7a-release.apk",
-          "size": 14815353,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.0-20260713/app-armeabi-v7a-release.apk"
-        },
-        {
-          "name": "app-release.apk",
-          "size": 47713244,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.0-20260713/app-release.apk"
-        },
-        {
-          "name": "app-x86_64-release.apk",
-          "size": 18926086,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.0-20260713/app-x86_64-release.apk"
-        }
-      ]
+      "assets": []
     },
     {
       "tag": "v1.0.0-20260618-3",
       "name": "Release v1.0.0-20260618-3",
-      "body": "**Full Changelog**: https://github.com/chickwood/NearestStationNotification/compare/v1.0.0-20260618...v1.0.0-20260618-3",
       "published_at": "2026-07-07T13:12:47Z",
       "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.0.0-20260618-3",
-      "assets": [
-        {
-          "name": "app-arm64-v8a-release.apk",
-          "size": 17615959,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.0.0-20260618-3/app-arm64-v8a-release.apk"
-        },
-        {
-          "name": "app-armeabi-v7a-release.apk",
-          "size": 14963049,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.0.0-20260618-3/app-armeabi-v7a-release.apk"
-        },
-        {
-          "name": "app-release.apk",
-          "size": 47992012,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.0.0-20260618-3/app-release.apk"
-        },
-        {
-          "name": "app-x86_64-release.apk",
-          "size": 19024630,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.0.0-20260618-3/app-x86_64-release.apk"
-        }
-      ]
+      "assets": []
     },
     {
       "tag": "v1.0.0-20260618",
       "name": "Release v1.0.0-20260618",
-      "body": "**Full Changelog**: https://github.com/chickwood/NearestStationNotification/commits/v1.0.0-20260618",
       "published_at": "2026-06-29T19:06:06Z",
       "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.0.0-20260618",
-      "assets": [
-        {
-          "name": "app-arm64-v8a-release.apk",
-          "size": 17614911,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.0.0-20260618/app-arm64-v8a-release.apk"
-        },
-        {
-          "name": "app-armeabi-v7a-release.apk",
-          "size": 14961873,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.0.0-20260618/app-armeabi-v7a-release.apk"
-        },
-        {
-          "name": "app-release.apk",
-          "size": 47990500,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.0.0-20260618/app-release.apk"
-        },
-        {
-          "name": "app-x86_64-release.apk",
-          "size": 19023118,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.0.0-20260618/app-x86_64-release.apk"
-        }
-      ]
+      "assets": []
     }
   ]
 }
