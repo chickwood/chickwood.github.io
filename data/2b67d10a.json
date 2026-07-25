@@ -10,22 +10,22 @@
         {
           "name": "app-arm64-v8a-release.apk",
           "size": 17517387,
-          "url": "https://download.w57.name/2b67d10a/app-arm64-v8a-release.apk"
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-arm64-v8a-release.apk"
         },
         {
           "name": "app-armeabi-v7a-release.apk",
           "size": 14815325,
-          "url": "https://download.w57.name/2b67d10a/app-armeabi-v7a-release.apk"
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-armeabi-v7a-release.apk"
         },
         {
           "name": "app-release.apk",
           "size": 47647680,
-          "url": "https://download.w57.name/2b67d10a/app-release.apk"
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-release.apk"
         },
         {
           "name": "app-x86_64-release.apk",
           "size": 18860522,
-          "url": "https://download.w57.name/2b67d10a/app-x86_64-release.apk"
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-x86_64-release.apk"
         }
       ]
     },
