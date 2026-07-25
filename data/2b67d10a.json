@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T04:43:13.633Z",
+  "updatedAt": "2026-07-25T13:55:45.412Z",
   "releases": [
     {
       "tag": "v1.1.2-20260713",
@@ -10,22 +10,22 @@
         {
           "name": "app-arm64-v8a-release.apk",
           "size": 17451847,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.2-20260713/app-arm64-v8a-release.apk"
+          "url": "https://downloads.w57.name/2b67d10a/app-arm64-v8a-release.apk"
         },
         {
           "name": "app-armeabi-v7a-release.apk",
           "size": 14815321,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.2-20260713/app-armeabi-v7a-release.apk"
+          "url": "https://downloads.w57.name/2b67d10a/app-armeabi-v7a-release.apk"
         },
         {
           "name": "app-release.apk",
           "size": 47582140,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.2-20260713/app-release.apk"
+          "url": "https://downloads.w57.name/2b67d10a/app-release.apk"
         },
         {
           "name": "app-x86_64-release.apk",
           "size": 18860522,
-          "url": "https://github.com/chickwood/NearestStationNotification/releases/download/v1.1.2-20260713/app-x86_64-release.apk"
+          "url": "https://downloads.w57.name/2b67d10a/app-x86_64-release.apk"
         }
       ]
     },
