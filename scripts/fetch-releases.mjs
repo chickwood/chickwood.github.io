@@ -42,7 +42,7 @@ for (const project of projects) {
       assets: index === 0 ? (r.assets || []).map(a => ({
         name: a.name,
         size: a.size,
-        url: `https://downloads.w57.name/${key}/${encodeURIComponent(a.name)}`,
+        url: `https://download.w57.name/${key}/${encodeURIComponent(a.name)}`,
       })) : [],
     }));
 
