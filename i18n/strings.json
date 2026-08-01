@@ -24,11 +24,6 @@
     "en": "View details and download ->",
     "ja": "詳細とダウンロードへ ->"
   },
-  "view_on_github": {
-    "zh-CN": "在 GitHub 上查看 ->",
-    "en": "View on GitHub ->",
-    "ja": "GitHub で見る ->"
-  },
   "latest_release": {
     "zh-CN": "最新版本",
     "en": "Latest release",
@@ -54,25 +49,10 @@
     "en": "Previous releases",
     "ja": "リリース履歴"
   },
-  "expand": {
-    "zh-CN": "展开 +",
-    "en": "Expand +",
-    "ja": "展開する +"
-  },
-  "collapse": {
-    "zh-CN": "收起 -",
-    "en": "Collapse -",
-    "ja": "折りたたむ -"
-  },
   "no_releases": {
     "zh-CN": "这个项目还没有发布任何版本。",
     "en": "This project has no releases yet.",
     "ja": "このプロジェクトにはまだリリースがありません。"
-  },
-  "no_changelog": {
-    "zh-CN": "（这个版本没有填写更新说明）",
-    "en": "(No changelog provided for this release)",
-    "ja": "（このリリースには変更履歴がありません）"
   },
   "loading": {
     "zh-CN": "正在加载 ...",

@@ -123,16 +123,26 @@ https://<你的用户名>.github.io/<仓库名>/
 ## 关于翻译范围
 
 - 按你的要求，**只有界面文案（按钮、标签、提示语等）是三语的**，字典在 `i18n/strings.json` 里，要加新文案就在这个文件里加一个 key，三种语言都填上，然后在 HTML 里给元素加 `data-i18n="你的key"`
-- `config/projects.json` 里的 `gallery` 字段是每个项目的截图画廊：每张图的**图片本身和说明文字都是按语言分的**，格式：
+- `config/projects.json` 里的 `gallery` 字段是每个项目的截图画廊：**按语言分数组**，每种语言下是一个图片对象数组，每个对象包含 `src`（图片路径）和 `caption`（说明文字）。格式：
 
   ```json
-  {
-    "src": { "zh-CN": "images/example-project/1-zh-CN.svg", "en": "images/example-project/1-en.svg", "ja": "images/example-project/1-ja.svg" },
-    "caption": { "zh-CN": "主界面", "en": "Dashboard", "ja": "ダッシュボード" }
+  "gallery": {
+    "zh-CN": [
+      { "src": "images/example-project/1-zh-CN.png", "caption": "主界面" },
+      { "src": "images/example-project/2-zh-CN.png", "caption": "设置" }
+    ],
+    "en": [
+      { "src": "images/example-project/1-en.png", "caption": "Dashboard" },
+      { "src": "images/example-project/2-en.png", "caption": "Settings" }
+    ],
+    "ja": [
+      { "src": "images/example-project/1-ja.png", "caption": "ダッシュボード" },
+      { "src": "images/example-project/2-ja.png", "caption": "設定" }
+    ]
   }
   ```
 
-  用户切换语言时，图片和说明文字会一起换成对应语言的版本。每个项目的图片建议放在独立的 `images/<project-key>/` 目录中，文件名可以自行确定，只需让 `src` 与实际路径一致。想加减截图数量，直接在 `gallery` 数组里加减条目（建议 2~5 张）。
+  用户切换语言时，图片和说明文字会一起换成对应语言的版本。页面渲染时会取 `gallery[当前语言]`，如果当前语言没有对应数组，则回退到 `gallery.en`。不同语言的截图数量可以不同（例如某功能在某语言下不需要展示）。每个项目的图片建议放在独立的 `images/<project-key>/` 目录中，文件名可以自行确定，只需让 `src` 与实际路径一致。想加减截图数量，直接在对应语言的数组里加减条目（建议 2~7 张）。
 
 - **release 的更新说明正文不做翻译**，原样显示 GitHub Release 里写的内容
 - 项目名称、项目简介（`config/projects.json` 里的 `name` / `description`）也是按语言分字段的，需要手动维护三份

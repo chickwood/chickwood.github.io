@@ -4,6 +4,26 @@
 
 import { readFile, writeFile, mkdir } from 'fs/promises';
 
+// 已知架构关键词——遇到新平台时往这里加就行
+const ARCH_KEYWORDS = [
+  // Android
+  'arm64-v8a', 'armeabi-v7a', 'x86_64', 'x86', 'riscv64',
+  // iOS / 通用
+  'aarch64', 'arm64',
+  // Windows / Linux / 桌面
+  'amd64', 'i386', 'i686',
+];
+
+// assets 排序：架构专用在前，Universal 在后，同组内按文件名字母序
+function sortAssets(assets) {
+  return [...assets].sort((a, b) => {
+    const aIsArch = ARCH_KEYWORDS.some(k => a.name.includes(k));
+    const bIsArch = ARCH_KEYWORDS.some(k => b.name.includes(k));
+    if (aIsArch !== bIsArch) return aIsArch ? -1 : 1;
+    return a.name.localeCompare(b.name);
+  });
+}
+
 const projects = JSON.parse(await readFile('config/projects.json', 'utf-8'));
 
 const token = process.env.GITHUB_TOKEN;
@@ -39,12 +59,15 @@ for (const project of projects) {
       name: r.name,
       published_at: r.published_at || r.created_at,
       html_url: r.html_url,
-      assets: index === 0 ? (r.assets || []).map(a => ({
+      assets: index === 0 ? sortAssets((r.assets || []).map(a => ({
         name: a.name,
         size: a.size,
         url: `https://www.w57.name/download.html?project=${encodeURIComponent(key)}&file=${encodeURIComponent(a.name)}`,
-      })) : [],
+      }))) : [],
     }));
+
+    // 按 tag 名称降序排列（最新版本号在前）
+    simplified.sort((a, b) => (b.tag || '').localeCompare(a.tag || ''));
 
     outputFiles.set(
       `data/${key}.json`,

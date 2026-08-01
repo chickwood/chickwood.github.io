@@ -420,4 +420,14 @@ footer a {
   font-family: var(--mono);
 }
 
-@media (prefers-reduced-motion: reduce) {}
+@media (prefers-reduced-motion: reduce) {
+  .icon-link,
+  .lang-btn,
+  .project-card {
+    transition: none;
+  }
+
+  .gallery {
+    scroll-behavior: auto;
+  }
+}
