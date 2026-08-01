@@ -66,9 +66,6 @@ for (const project of projects) {
       }))) : [],
     }));
 
-    // 按 tag 名称降序排列（最新版本号在前）
-    simplified.sort((a, b) => (b.tag || '').localeCompare(a.tag || ''));
-
     outputFiles.set(
       `data/${key}.json`,
       JSON.stringify({ updatedAt: new Date().toISOString(), releases: simplified }, null, 2)

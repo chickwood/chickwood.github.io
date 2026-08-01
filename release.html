@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>W57's Toolbox</title>
+  <title></title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -42,6 +42,7 @@
   </div>
 
   <script src="assets/i18n.js"></script>
+  <script src="assets/escape.js"></script>
   <script src="assets/render.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -70,13 +71,15 @@
       document.getElementById('projectName').textContent = tField(currentProject.name);
       document.getElementById('projectDescription').textContent = tField(currentProject.description);
       document.getElementById('repoLinkFooter').href = repoUrl;
+      document.title = `${tField(currentProject.name)} - ${t('site_title')}`;
       renderGallery();
     }
 
     function renderGallery() {
       const section = document.getElementById('gallerySection');
       const track = document.getElementById('gallery');
-      const items = currentProject.gallery[currentLocale] || currentProject.gallery.en || [];
+      const gallery = currentProject.gallery || {};
+      const items = gallery[currentLocale] || gallery.en || [];
 
       if (!items || items.length === 0) {
         section.style.display = 'none';
@@ -85,8 +88,8 @@
 
       section.style.display = 'block';
       track.innerHTML = items.map(item => {
-        const caption = item.caption;
-        const src = item.src;
+        const caption = escapeHtml(item.caption);
+        const src = escapeHtml(item.src);
         return `
       <div class="gallery-item">
         <img src="${src}" alt="${caption}" loading="lazy">

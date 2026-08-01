@@ -1,5 +1,5 @@
 /* 读取 data/<project>.json（由 GitHub Action 生成），渲染发布页
-   依赖 assets/i18n.js 提供的 t() 函数 */
+   依赖 assets/i18n.js 提供的 t() 函数、assets/escape.js 提供的 escapeHtml 函数 */
 
 function fmtDate(iso) {
   if (!iso) return '';
@@ -17,14 +17,10 @@ function fmtSize(bytes) {
   return mb >= 1 ? mb.toFixed(1) + ' MB' : (bytes / 1024).toFixed(0) + ' KB';
 }
 
-function escapeHtml(str) {
-  return (str || '').replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
-}
-
 function renderAssetsList(assets, htmlUrl) {
   const files = assets && assets.length > 0
     ? assets.map(a =>
-      `<div><a href="${a.url}" target="_blank" rel="noopener">${escapeHtml(a.name)}</a> — ${fmtSize(a.size)}</div>`
+      `<div><a href="${escapeHtml(a.url)}" target="_blank" rel="noopener">${escapeHtml(a.name)}</a> — ${fmtSize(a.size)}</div>`
     ).join('')
     : '';
   return `
@@ -32,7 +28,7 @@ function renderAssetsList(assets, htmlUrl) {
       <div class="download-label">${t('download')}</div>
       ${files}
     </div>
-    <div class="tl-assets"><a href="${htmlUrl}" target="_blank" rel="noopener">${t('view_changelog')}</a></div>
+    <div class="tl-assets"><a href="${escapeHtml(htmlUrl)}" target="_blank" rel="noopener">${t('view_changelog')}</a></div>
   `;
 }
 
@@ -55,7 +51,7 @@ function renderTimeline(releases) {
     return `
       <div class="tl-item">
         <div class="tl-row">
-          <a class="tl-tag" href="${r.html_url}" target="_blank" rel="noopener">${tag}</a>
+          <a class="tl-tag" href="${escapeHtml(r.html_url)}" target="_blank" rel="noopener">${tag}</a>
           <span class="tl-date">${date}</span>
         </div>
       </div>

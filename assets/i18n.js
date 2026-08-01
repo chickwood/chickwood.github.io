@@ -10,8 +10,8 @@ function detectLocale() {
   const stored = localStorage.getItem('site-locale');
   if (stored && SUPPORTED_LOCALES.includes(stored)) return stored;
 
-  const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-  if (nav.startsWith('zh')) return 'zh-CN';
+  const nav = (navigator.language || 'en').toLowerCase();
+  if (nav.startsWith('zh-cn') || nav.startsWith('zh-hans')) return 'zh-CN';
   if (nav.startsWith('ja')) return 'ja';
   return 'en';
 }
