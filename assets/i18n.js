@@ -3,12 +3,15 @@
    - 支持手动切换，选择会记住（localStorage）
    - 只翻译界面文案；release 的更新说明正文不翻译 */
 
-const SUPPORTED_LOCALES = ['zh-CN', 'ja', 'en'];
-const LOCALE_LABELS = { 'zh-CN': '中', 'ja': '日', 'en': 'En' };
+const LOCALES = [
+  { code: 'zh-CN', short: '汉', full: '简体中文' },
+  { code: 'ja', short: 'あ', full: '日本語' },
+  { code: 'en', short: 'Aa', full: 'English' },
+];
 
 function detectLocale() {
   const stored = localStorage.getItem('site-locale');
-  if (stored && SUPPORTED_LOCALES.includes(stored)) return stored;
+  if (stored && LOCALES.some(l => l.code === stored)) return stored;
 
   const nav = (navigator.language || 'en').toLowerCase();
   if (nav.startsWith('zh-cn') || nav.startsWith('zh-hans')) return 'zh-CN';
@@ -46,21 +49,75 @@ function applyI18n() {
   renderLangSwitcher();
 }
 
+function closeLangMenu() {
+  const mount = document.getElementById('langSwitcher');
+  if (!mount) return;
+  const menu = mount.querySelector('.lang-menu');
+  const trigger = mount.querySelector('.lang-trigger');
+  if (menu) menu.hidden = true;
+  if (trigger) {
+    trigger.setAttribute('aria-expanded', 'false');
+    const arrow = trigger.querySelector('.lang-trigger-arrow');
+    if (arrow) arrow.textContent = '▾';
+  }
+}
+
+let _langOutsideClickBound = false;
+
 function renderLangSwitcher() {
   const mount = document.getElementById('langSwitcher');
   if (!mount) return;
-  mount.innerHTML = SUPPORTED_LOCALES.map(loc =>
-    `<button class="lang-btn ${loc === currentLocale ? 'active' : ''}" data-locale="${loc}">${LOCALE_LABELS[loc]}</button>`
-  ).join('');
-  mount.querySelectorAll('.lang-btn').forEach(btn => {
+
+  const current = LOCALES.find(l => l.code === currentLocale);
+  const order = [
+    ...LOCALES.filter(l => l.code === currentLocale),
+    ...LOCALES.filter(l => l.code !== currentLocale),
+  ];
+
+  mount.innerHTML = `
+    <button class="lang-trigger" type="button" aria-expanded="false">
+      <span class="lang-trigger-label">${current.short}</span>
+      <span class="lang-trigger-arrow">▾</span>
+    </button>
+    <ul class="lang-menu" hidden>
+      ${order.map(l => `<li><button class="lang-option ${l.code === currentLocale ? 'active' : ''}" type="button" data-locale="${l.code}">${l.full}</button></li>`).join('')}
+    </ul>
+  `;
+
+  const trigger = mount.querySelector('.lang-trigger');
+  const menu = mount.querySelector('.lang-menu');
+
+  trigger.addEventListener('click', e => {
+    e.stopPropagation();
+    if (menu.hidden) {
+      menu.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+      trigger.querySelector('.lang-trigger-arrow').textContent = '▴';
+    } else {
+      closeLangMenu();
+    }
+  });
+
+  mount.querySelectorAll('.lang-option').forEach(btn => {
     btn.addEventListener('click', async () => {
-      currentLocale = btn.getAttribute('data-locale');
+      const loc = btn.getAttribute('data-locale');
+      closeLangMenu();
+      if (loc === currentLocale) return;
+      currentLocale = loc;
       localStorage.setItem('site-locale', currentLocale);
       await loadStrings();
       applyI18n();
       if (typeof onLocaleChange === 'function') onLocaleChange();
     });
   });
+
+  if (!_langOutsideClickBound) {
+    document.addEventListener('click', e => {
+      const m = document.getElementById('langSwitcher');
+      if (m && !m.contains(e.target)) closeLangMenu();
+    });
+    _langOutsideClickBound = true;
+  }
 }
 
 // 页面初始化：加载字典 + 应用文案。返回 currentLocale 供页面自身逻辑使用。

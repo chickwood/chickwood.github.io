@@ -75,7 +75,7 @@ function bindPreviousReleasesToggle() {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
     list.hidden = expanded;
-    toggle.textContent = expanded ? t('previous_releases') + ' ▾' : t('previous_releases') + ' ▸';
+    toggle.textContent = expanded ? t('previous_releases') + ' ▾' : t('previous_releases') + ' ▴';
   };
 
   toggle.addEventListener('click', toggleList);
