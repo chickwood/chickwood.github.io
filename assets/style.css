@@ -254,6 +254,7 @@ a.brand:hover {
   font-size: small;
   color: var(--muted);
   margin: 0;
+  white-space: pre-line;
 }
 
 .project-card-cta {
@@ -267,13 +268,21 @@ a.brand:hover {
 /* project tagline + gallery (release.html) */
 .tagline-title {
   font-size: x-large;
-  margin: 0 0 8px;
+  margin: 0 0 16px;
 }
 
 .tagline-subtitle {
   font-size: medium;
   color: var(--muted);
-  margin: 0 0 24px;
+  margin: 0 0 16px;
+  white-space: pre-line;
+}
+
+.tagline-additional {
+  font-size: smaller;
+  color: var(--muted);
+  margin: 0 0 16px;
+  white-space: pre-line;
 }
 
 .gallery-section {

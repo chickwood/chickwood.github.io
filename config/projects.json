@@ -13,6 +13,11 @@
       "en": "Finds the nearest station using your location and sends a notification.",
       "ja": "現在地から最寄り駅を検索して通知する。"
     },
+    "additionalDescription": {
+      "zh-CN": "请根据手机的架构下载 APK 文件。\n较新的手机通常可以选择 arm64-v8a 的版本。\n如果不清楚手机的架构，请下载没有架构标识的通用版本（但文件较大，不推荐）。",
+      "en": "Download the APK that matches your phone's architecture.\nFor relatively new phones, it’s usually arm64-v8a.\nIf you are unsure your phone's architecture, download the universal version without an architecture label (while the file is larger, so it's not recommended).",
+      "ja": "スマートフォンのアーキテクチャに合う APK ファイルをダウンロードしてください。\n比較的新しいスマートフォンには、通常 arm64-v8a 対応しています。\n不明な場合は、アーキテクチャ表記のないユニバーサル版をダウンロードしてください（ファイルサイズが大きいため非推奨）。"
+    },
     "gallery": {
       "zh-CN": [
         {

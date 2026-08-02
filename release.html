@@ -22,6 +22,7 @@
       <a class="icon-link" href="index.html" style="margin-bottom:16px;" data-i18n="back_to_projects"></a>
       <p class="tagline-title" id="projectName"></p>
       <p class="tagline-subtitle" id="projectDescription"></p>
+      <p class="tagline-additional" id="projectAdditionalDescription" hidden></p>
     </div>
 
     <div class="gallery-section" id="gallerySection" style="display:none;">
@@ -70,6 +71,10 @@
       const repoUrl = `https://github.com/${currentProject.owner}/${currentProject.repo}`;
       document.getElementById('projectName').textContent = tField(currentProject.name);
       document.getElementById('projectDescription').textContent = tField(currentProject.description);
+      const additionalDescription = document.getElementById('projectAdditionalDescription');
+      const additionalDescriptionText = tField(currentProject.additionalDescription).trim();
+      additionalDescription.textContent = additionalDescriptionText;
+      additionalDescription.hidden = !additionalDescriptionText;
       document.getElementById('repoLinkFooter').href = repoUrl;
       document.title = `${tField(currentProject.name)} - ${t('site_title')}`;
       renderGallery();
