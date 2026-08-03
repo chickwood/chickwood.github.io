@@ -95,21 +95,16 @@ a.brand:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  width: 56px;
+  width: 48px;
   height: 32px;
-  border: 1px solid var(--accent-border);
-  background: var(--accent);
-  color: #fff;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--muted);
   padding: 5px 10px;
   border-radius: 6px;
   cursor: pointer;
   font-family: var(--sans);
   font-size: small;
-}
-
-.lang-trigger-arrow {
-  font-size: smaller;
 }
 
 .lang-menu {
@@ -139,7 +134,7 @@ a.brand:hover {
   text-align: center;
   border: 1px solid var(--border);
   background: transparent;
-  color: var(--text);
+  color: var(--muted);
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
@@ -148,14 +143,11 @@ a.brand:hover {
   white-space: nowrap;
 }
 
-.lang-option:hover {
-  background: var(--accent-soft);
-}
-
+.lang-trigger:hover,
+.lang-trigger[aria-expanded="true"],
+.lang-option:hover,
 .lang-option.active {
-  border: 1px solid var(--accent-border);
-  background: var(--accent);
-  color: #fff;
+  background: var(--accent-soft);
 }
 
 /* eyebrow / section labels */

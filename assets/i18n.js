@@ -68,7 +68,6 @@ function renderLangSwitcher() {
   const mount = document.getElementById('langSwitcher');
   if (!mount) return;
 
-  const current = LOCALES.find(l => l.code === currentLocale);
   const order = [
     ...LOCALES.filter(l => l.code === currentLocale),
     ...LOCALES.filter(l => l.code !== currentLocale),
@@ -76,7 +75,7 @@ function renderLangSwitcher() {
 
   mount.innerHTML = `
     <button class="lang-trigger" type="button" aria-expanded="false">
-      <span class="lang-trigger-label">${current.short}</span>
+      <img src="https://api.iconify.design/mdi/language.svg?color=%236B7076" width="16" height="16" alt="">
       <span class="lang-trigger-arrow">▾</span>
     </button>
     <ul class="lang-menu" hidden>
