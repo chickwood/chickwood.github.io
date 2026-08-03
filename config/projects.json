@@ -5,18 +5,18 @@
     "repo": "NearestStationNotification",
     "name": {
       "zh-CN": "附近车站通知",
-      "en": "Nearest Station Notification",
-      "ja": "最寄り駅通知"
+      "ja": "最寄り駅通知",
+      "en": "Nearest Station Notification"
     },
     "description": {
       "zh-CN": "根据当前定位查找距离最近的车站并显示通知。",
-      "en": "Finds the nearest station using your location and sends a notification.",
-      "ja": "現在地から最寄り駅を検索して通知する。"
+      "ja": "現在地から最寄り駅を検索して通知する。",
+      "en": "Finds the nearest station using your location and sends a notification."
     },
     "additionalDescription": {
       "zh-CN": "请根据手机的架构下载 APK 文件。\n较新的手机通常可以选择 arm64-v8a 的版本。\n如果不清楚手机的架构，请下载没有架构标识的通用版本（但文件较大，不推荐）。",
-      "en": "Download the APK that matches your phone's architecture.\nFor relatively new phones, it’s usually arm64-v8a.\nIf you are unsure your phone's architecture, download the universal version without an architecture label (while the file is larger, so it's not recommended).",
-      "ja": "スマートフォンのアーキテクチャに合う APK ファイルをダウンロードしてください。\n比較的新しいスマートフォンには、通常 arm64-v8a 対応しています。\n不明な場合は、アーキテクチャ表記のないユニバーサル版をダウンロードしてください（ファイルサイズが大きいため非推奨）。"
+      "ja": "スマートフォンのアーキテクチャに合う APK ファイルをダウンロードしてください。\n比較的新しいスマートフォンには、通常 arm64-v8a 対応しています。\n不明な場合は、アーキテクチャ表記のないユニバーサル版をダウンロードしてください（ファイルサイズが大きいため非推奨）。",
+      "en": "Download the APK that matches your phone's architecture.\nFor relatively new phones, it’s usually arm64-v8a.\nIf you are unsure your phone's architecture, download the universal version without an architecture label (while the file is larger, so it's not recommended).\nStation names are available in Japanese only."
     },
     "gallery": {
       "zh-CN": [
@@ -49,6 +49,32 @@
           "caption": "三按钮"
         }
       ],
+      "ja": [
+        {
+          "src": "images/2b67d10a/1-top-ja.png",
+          "caption": "トップ"
+        },
+        {
+          "src": "images/2b67d10a/2-notification-ja.png",
+          "caption": "通知"
+        },
+        {
+          "src": "images/2b67d10a/3-list-ja.png",
+          "caption": "最寄り駅一覧"
+        },
+        {
+          "src": "images/2b67d10a/4-settings-ja.png",
+          "caption": "設定"
+        },
+        {
+          "src": "images/2b67d10a/5-status-ja.png",
+          "caption": "現在状態（2段階表示）"
+        },
+        {
+          "src": "images/2b67d10a/6-3button-ja.png",
+          "caption": "3 ボタン"
+        }
+      ],
       "en": [
         {
           "src": "images/2b67d10a/1-top-en.png",
@@ -77,32 +103,6 @@
         {
           "src": "images/2b67d10a/6-3button-en.png",
           "caption": "3-Button Navigation"
-        }
-      ],
-      "ja": [
-        {
-          "src": "images/2b67d10a/1-top-ja.png",
-          "caption": "トップ"
-        },
-        {
-          "src": "images/2b67d10a/2-notification-ja.png",
-          "caption": "通知"
-        },
-        {
-          "src": "images/2b67d10a/3-list-ja.png",
-          "caption": "最寄り駅一覧"
-        },
-        {
-          "src": "images/2b67d10a/4-settings-ja.png",
-          "caption": "設定"
-        },
-        {
-          "src": "images/2b67d10a/5-status-ja.png",
-          "caption": "現在状態（2段階表示）"
-        },
-        {
-          "src": "images/2b67d10a/6-3button-ja.png",
-          "caption": "3 ボタン"
         }
       ]
     }

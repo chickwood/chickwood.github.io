@@ -6,7 +6,7 @@
 const LOCALES = [
   { code: 'zh-CN', short: '汉', full: '简体中文' },
   { code: 'ja', short: 'あ', full: '日本語' },
-  { code: 'en', short: 'Aa', full: 'English' },
+  { code: 'en', short: 'Aa', full: 'English' }
 ];
 
 function detectLocale() {
