@@ -74,11 +74,11 @@ function renderLangSwitcher() {
   ];
 
   mount.innerHTML = `
-    <button class="lang-trigger" type="button" aria-expanded="false">
+    <button class="lang-trigger" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="langMenu">
       <img src="https://api.iconify.design/mdi/language.svg?color=%236B7076" width="16" height="16" alt="">
       <span class="lang-trigger-arrow">▾</span>
     </button>
-    <ul class="lang-menu" hidden>
+    <ul class="lang-menu" id="langMenu" hidden>
       ${order.map(l => `<li><button class="lang-option ${l.code === currentLocale ? 'active' : ''}" type="button" data-locale="${l.code}">${l.full}</button></li>`).join('')}
     </ul>
   `;
@@ -94,6 +94,13 @@ function renderLangSwitcher() {
       trigger.querySelector('.lang-trigger-arrow').textContent = '▴';
     } else {
       closeLangMenu();
+    }
+  });
+
+  trigger.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !menu.hidden) {
+      closeLangMenu();
+      trigger.focus();
     }
   });
 
