@@ -38,7 +38,7 @@
         },
         {
           "src": "images/2b67d10a/5-status-zh-CN.png",
-          "caption": "当前状态（分2阶段展示）"
+          "caption": "当前定位及状态（分 2 阶段展示）"
         },
         {
           "src": "images/2b67d10a/7-lang-zh-CN.png",
@@ -68,7 +68,7 @@
         },
         {
           "src": "images/2b67d10a/5-status-ja.png",
-          "caption": "現在状態（2段階表示）"
+          "caption": "現在位置・状態（2 段階表示）"
         },
         {
           "src": "images/2b67d10a/6-3button-ja.png",
@@ -94,7 +94,7 @@
         },
         {
           "src": "images/2b67d10a/5-status-en.png",
-          "caption": "Current Status (2-Steps)"
+          "caption": "Current Location and Status (2-Stages)"
         },
         {
           "src": "images/2b67d10a/7-lang-en.png",
