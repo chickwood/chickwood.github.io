@@ -1,33 +1,40 @@
 {
-  "updatedAt": "2026-08-01T14:24:23.280Z",
+  "updatedAt": "2026-08-18T00:53:20.517Z",
   "releases": [
+    {
+      "tag": "v1.1.4-20260731",
+      "name": "Release v1.1.4-20260731",
+      "published_at": "2026-08-18T00:47:04Z",
+      "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.1.4-20260731",
+      "assets": [
+        {
+          "name": "app-arm64-v8a-release.apk",
+          "size": 17677241,
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-arm64-v8a-release.apk"
+        },
+        {
+          "name": "app-armeabi-v7a-release.apk",
+          "size": 15003939,
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-armeabi-v7a-release.apk"
+        },
+        {
+          "name": "app-x86_64-release.apk",
+          "size": 19111816,
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-x86_64-release.apk"
+        },
+        {
+          "name": "app-release.apk",
+          "size": 48275806,
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-release.apk"
+        }
+      ]
+    },
     {
       "tag": "v1.1.3-20260731",
       "name": "Release v1.1.3-20260731",
       "published_at": "2026-08-01T14:21:29Z",
       "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.1.3-20260731",
-      "assets": [
-        {
-          "name": "app-arm64-v8a-release.apk",
-          "size": 17517399,
-          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-arm64-v8a-release.apk"
-        },
-        {
-          "name": "app-armeabi-v7a-release.apk",
-          "size": 14815337,
-          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-armeabi-v7a-release.apk"
-        },
-        {
-          "name": "app-x86_64-release.apk",
-          "size": 18860534,
-          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-x86_64-release.apk"
-        },
-        {
-          "name": "app-release.apk",
-          "size": 47647692,
-          "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-release.apk"
-        }
-      ]
+      "assets": []
     },
     {
       "tag": "v1.1.3-20260713",
