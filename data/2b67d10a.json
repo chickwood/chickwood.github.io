@@ -1,20 +1,20 @@
 {
-  "updatedAt": "2026-08-18T00:53:20.517Z",
+  "updatedAt": "2026-08-18T07:58:01.396Z",
   "releases": [
     {
-      "tag": "v1.1.4-20260731",
-      "name": "Release v1.1.4-20260731",
-      "published_at": "2026-08-18T00:47:04Z",
-      "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.1.4-20260731",
+      "tag": "v1.1.5-20260731",
+      "name": "Release v1.1.5-20260731",
+      "published_at": "2026-08-18T07:55:37Z",
+      "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.1.5-20260731",
       "assets": [
         {
           "name": "app-arm64-v8a-release.apk",
-          "size": 17677241,
+          "size": 17611705,
           "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-arm64-v8a-release.apk"
         },
         {
           "name": "app-armeabi-v7a-release.apk",
-          "size": 15003939,
+          "size": 14987555,
           "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-armeabi-v7a-release.apk"
         },
         {
@@ -24,10 +24,17 @@
         },
         {
           "name": "app-release.apk",
-          "size": 48275806,
+          "size": 48193886,
           "url": "https://www.w57.name/download.html?project=2b67d10a&file=app-release.apk"
         }
       ]
+    },
+    {
+      "tag": "v1.1.4-20260731",
+      "name": "Release v1.1.4-20260731",
+      "published_at": "2026-08-18T00:47:04Z",
+      "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.1.4-20260731",
+      "assets": []
     },
     {
       "tag": "v1.1.3-20260731",
