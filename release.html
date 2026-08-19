@@ -13,20 +13,18 @@
   <div class="wrap">
     <header>
       <a class="brand" href="index.html"><span class="dot"></span><span data-i18n="site_title"></span></a>
-      <div class="header-right">
-        <div id="langSwitcher"></div>
-      </div>
+      <div id="langSwitcher"></div>
     </header>
 
     <div>
-      <a class="icon-link" href="index.html" style="margin-bottom:16px;" data-i18n="back_to_projects"></a>
+      <a class="icon-link" href="index.html" data-i18n="back_to_projects"></a>
       <p class="tagline-title" id="projectName"></p>
       <p class="tagline-subtitle" id="projectDescription"></p>
       <p class="tagline-additional" id="projectAdditionalDescription" hidden></p>
     </div>
 
     <div class="gallery-section" id="gallerySection" style="display:none;">
-      <p class="section-label" style="margin-top:0;" data-i18n="screenshots"></p>
+      <p class="section-label" data-i18n="screenshots"></p>
       <div class="gallery" id="gallery"></div>
     </div>
 
@@ -37,9 +35,16 @@
     <footer>
       <span id="updatedAt"></span>
       <a id="repoLinkFooter" href="#" target="_blank" rel="noopener">
-        <img src="https://api.iconify.design/mdi/github.svg?color=%23A0C0FF" width="24" height="24" alt="GitHub" />
+        <img src="https://api.iconify.design/mdi/github.svg?color=%23DCECFF" width="24" height="24" alt="GitHub" />
       </a>
     </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true">
+    <figure class="lightbox-body">
+      <img id="lightboxImage" src="" alt="" draggable="false">
+      <button type="button" class="lightbox-close" id="lightboxClose"><img src="https://api.iconify.design/mdi/close-circle.svg?color=%23DCECFF" width="40" height="40" alt="" draggable="false"></button>
+    </figure>
   </div>
 
   <script src="assets/i18n.js"></script>
@@ -64,6 +69,7 @@
       }
 
       renderProjectChrome();
+      bindGalleryLightbox();
       await loadAndRenderProject(currentProject.key);
     }
 
@@ -97,11 +103,58 @@
         const src = escapeHtml(item.src);
         return `
       <div class="gallery-item">
-        <img src="${src}" alt="${caption}" loading="lazy">
+        <button type="button" class="gallery-zoom" data-src="${src}" data-caption="${caption}" aria-label="${caption}">
+          <img src="${src}" alt="${caption}" loading="lazy">
+        </button>
         <p class="gallery-caption">${caption}</p>
       </div>
     `;
       }).join('');
+    }
+
+    function bindGalleryLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      let lastTrigger = null;
+
+      const openLightbox = (src, caption, trigger) => {
+        lastTrigger = trigger || null;
+        lightboxImage.src = src;
+        lightboxImage.alt = caption;
+        lightbox.setAttribute('aria-label', caption || t('screenshots'));
+        lightboxClose.setAttribute('aria-label', t('close'));
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        lightboxClose.focus();
+      };
+
+      const closeLightbox = () => {
+        if (lightbox.hidden) return;
+        lightbox.hidden = true;
+        lightboxImage.src = '';
+        document.body.style.overflow = '';
+        if (lastTrigger) {
+          lastTrigger.focus();
+          lastTrigger = null;
+        }
+      };
+
+      document.getElementById('gallery').addEventListener('click', event => {
+        const trigger = event.target.closest('.gallery-zoom');
+        if (trigger) openLightbox(trigger.dataset.src, trigger.dataset.caption || '', trigger);
+      });
+
+      lightbox.addEventListener('click', () => closeLightbox());
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeLightbox();
+        if (!lightbox.hidden && event.key === 'Tab') {
+          event.preventDefault();
+          lightboxClose.focus();
+        }
+      });
     }
 
     function onLocaleChange() {

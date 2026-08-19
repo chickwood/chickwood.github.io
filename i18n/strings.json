@@ -74,6 +74,11 @@
     "en": "Screenshots",
     "ja": "スクリーンショット"
   },
+  "close": {
+    "zh-CN": "关闭",
+    "en": "Close",
+    "ja": "閉じる"
+  },
   "updated_on": {
     "zh-CN": "数据更新于",
     "en": "Data updated on",
