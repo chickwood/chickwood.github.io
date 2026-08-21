@@ -66,14 +66,12 @@ a.brand:hover {
   background: var(--panel);
   color: var(--accent);
   text-decoration: none;
-  font-size: small;
+  font-size: x-small;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   border: 1px solid var(--border);
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 6px;
-  margin-bottom: 16px;
   transition: border-color .15s ease, color .15s ease;
 }
 
@@ -130,11 +128,11 @@ a.brand:hover {
   border: 1px solid var(--border);
   background: transparent;
   color: var(--muted);
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
   font-family: var(--sans);
-  font-size: small;
+  font-size: x-small;
   white-space: nowrap;
 }
 
@@ -184,7 +182,7 @@ a.brand:hover {
 /* project menu (index.html) */
 .page-title {
   font-size: x-large;
-  margin: 0 0 8px;
+  margin: 0 0 16px;
 }
 
 .page-subtitle {
@@ -245,6 +243,18 @@ a.brand:hover {
 }
 
 /* project tagline + gallery (release.html) */
+.tagline-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.tagline-head .tagline-title {
+  margin: 0;
+}
+
 .tagline-title {
   font-size: x-large;
   margin: 0 0 16px;
