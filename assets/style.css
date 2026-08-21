@@ -28,7 +28,7 @@ body {
 .wrap {
   max-width: 720px;
   margin: 0 auto;
-  padding: 48px 24px 96px;
+  padding: 48px 24px;
 }
 
 /* header */
@@ -37,7 +37,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 
