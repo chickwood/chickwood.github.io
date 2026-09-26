@@ -1,4 +1,4 @@
-name: Update release data
+name: update-release-data
 
 on:
   # schedule: # 取消注释恢复定时任务（cron 是 UTC 时间）
