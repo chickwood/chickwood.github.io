@@ -80,7 +80,7 @@
       document.getElementById('projectName').textContent = tField(currentProject.name);
       document.getElementById('projectDescription').textContent = tField(currentProject.description);
       const additionalDescription = document.getElementById('projectAdditionalDescription');
-      const additionalDescriptionText = tField(currentProject.additionalDescription).trim();
+      const additionalDescriptionText = tFieldLocal(currentProject.additionalDescription).trim();
       additionalDescription.textContent = additionalDescriptionText;
       additionalDescription.hidden = !additionalDescriptionText;
       document.getElementById('repoLinkFooter').href = repoUrl;

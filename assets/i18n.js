@@ -41,6 +41,12 @@ function tField(field) {
   return field[currentLocale] || field['en'] || Object.values(field)[0] || '';
 }
 
+// 仅取当前语言，不做跨语言回退（用于允许按语言留空的字段）
+function tFieldLocal(field) {
+  if (!field) return '';
+  return field[currentLocale] || '';
+}
+
 function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     el.textContent = t(el.getAttribute('data-i18n'));
