@@ -1,4 +1,4 @@
-/* 读取 data/<project>.json（由 GitHub Action 生成），渲染发布页
+/* 读取 data/data.<key>.json（由 GitHub Action 生成），渲染发布页
    依赖 assets/i18n.js 提供的 t() 函数、assets/escape.js 提供的 escapeHtml 函数 */
 
 function fmtDate(iso) {
@@ -94,7 +94,7 @@ async function loadAndRenderProject(projectKey) {
   contentEl.innerHTML = `<div class="state">${t('loading')}</div>`;
 
   try {
-    const res = await fetch(`data/${projectKey}.json`, { cache: 'no-store' });
+    const res = await fetch(`data/data.${projectKey}.json`, { cache: 'no-store' });
     if (!res.ok) throw new Error(String(res.status));
     const data = await res.json();
 

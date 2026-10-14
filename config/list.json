@@ -1,0 +1,28 @@
+[
+  {
+    "key": "2b67d10a",
+    "name": {
+      "zh-CN": "附近车站通知",
+      "ja": "最寄り駅通知",
+      "en": "Nearest Station Notification"
+    },
+    "description": {
+      "zh-CN": "根据当前定位查找距离最近的车站并显示通知。",
+      "ja": "現在地から最寄り駅を検索して通知する。",
+      "en": "Finds the nearest station using your location and sends a notification."
+    }
+  },
+  {
+    "key": "c6f7b0e2",
+    "name": {
+      "zh-CN": "车站信息及活动信息",
+      "ja": "駅情報及びイベント情報",
+      "en": "Station and Event Infomation"
+    },
+    "description": {
+      "zh-CN": "面向《附近车站通知》应用的最新车站信息和活动信息文件。",
+      "ja": "「最寄り駅通知」アプリ向けの最新駅情報とイベント情報ファイル。",
+      "en": "Updated station and event infomation file for the \"Nearest Station Notification\" application."
+    }
+  }
+]

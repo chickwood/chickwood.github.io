@@ -1,5 +1,6 @@
-// 读取 config/projects.json 里的项目列表，抓取每个项目的 release 数据，
-// 写成 data/<project-key>.json。由 .github/workflows/update-releases.yml 调用。
+// 读取 config/list.json（项目清单）里的每个 key，再读取对应的
+// config/config.<key>.json 拿到 owner/repo，抓取每个项目的 release 数据，
+// 写成 data/data.<key>.json。由 .github/workflows/update-releases.yml 调用。
 // 依赖 Node 18+ 内置的 fetch，不需要额外安装依赖。
 
 import { readFile, writeFile, mkdir } from 'fs/promises';
@@ -24,7 +25,7 @@ function sortAssets(assets) {
   });
 }
 
-const projects = JSON.parse(await readFile('config/projects.json', 'utf-8'));
+const catalog = JSON.parse(await readFile('config/list.json', 'utf-8'));
 
 const token = process.env.GITHUB_TOKEN;
 if (!token) {
@@ -39,8 +40,19 @@ const headers = {
 const outputFiles = new Map();
 let hasErrors = false;
 
-for (const project of projects) {
-  const { key, owner, repo } = project;
+for (const entry of catalog) {
+  const { key } = entry;
+
+  let project;
+  try {
+    project = JSON.parse(await readFile(`config/config.${key}.json`, 'utf-8'));
+  } catch (err) {
+    console.error(`[${key}] 读取项目配置失败：config/config.${key}.json -> ${err.message}`);
+    hasErrors = true;
+    continue;
+  }
+
+  const { owner, repo } = project;
   const url = `https://api.github.com/repos/${owner}/${repo}/releases`;
 
   try {
@@ -67,7 +79,7 @@ for (const project of projects) {
     }));
 
     outputFiles.set(
-      `data/${key}.json`,
+      `data/data.${key}.json`,
       JSON.stringify({ updatedAt: new Date().toISOString(), releases: simplified }, null, 2)
     );
 

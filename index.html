@@ -36,7 +36,7 @@
     async function renderProjectList() {
       const listEl = document.getElementById('projectList');
       try {
-        const res = await fetch('config/projects.json');
+        const res = await fetch('config/list.json');
         const projects = await res.json();
         listEl.innerHTML = projects.map(p => `
       <a class="project-card" href="release.html?project=${encodeURIComponent(p.key)}">

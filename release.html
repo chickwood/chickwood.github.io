@@ -61,14 +61,38 @@
     async function init() {
       await initI18n();
 
-      const res = await fetch('config/projects.json');
-      const projects = await res.json();
-      currentProject = projects.find(p => p.key === projectKey);
+      let projects;
+      try {
+        const res = await fetch('config/list.json');
+        projects = await res.json();
+      } catch (err) {
+        document.getElementById('content').innerHTML = `<div class="state error">${t('load_error')}</div>`;
+        return;
+      }
 
-      if (!currentProject) {
+      const entry = projects.find(p => p.key === projectKey);
+
+      if (!entry) {
         document.getElementById('content').innerHTML = `<div class="state error">${t('project_not_found')}</div>`;
         return;
       }
+
+      let projectConfig;
+      try {
+        const res = await fetch(`config/config.${projectKey}.json`);
+        if (!res.ok) throw new Error(String(res.status));
+        projectConfig = await res.json();
+      } catch (err) {
+        document.getElementById('content').innerHTML = `<div class="state error">${t('load_error')}</div>`;
+        return;
+      }
+
+      currentProject = {
+        key: entry.key,
+        name: entry.name,
+        description: entry.description,
+        ...projectConfig,
+      };
 
       renderProjectChrome();
       bindGalleryLightbox();

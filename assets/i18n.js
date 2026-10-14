@@ -23,7 +23,7 @@ let currentLocale = detectLocale();
 let strings = {};
 
 async function loadStrings() {
-  const res = await fetch('i18n/strings.json');
+  const res = await fetch('i18n/i18n.json');
   const all = await res.json();
   strings = {};
   for (const key in all) {
@@ -35,7 +35,7 @@ function t(key) {
   return strings[key] || key;
 }
 
-// 从多语字段对象里取当前语言（用于 projects.json 里的 name/description）
+// 从多语字段对象里取当前语言（用于 list.json 里的 name/description）
 function tField(field) {
   if (!field) return '';
   return field[currentLocale] || field['en'] || Object.values(field)[0] || '';
