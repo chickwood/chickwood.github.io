@@ -1,4 +1,18 @@
 {
-  "updatedAt": "2026-10-15T11:05:13.908Z",
-  "releases": []
+  "updatedAt": "2026-10-16T14:16:26.244Z",
+  "releases": [
+    {
+      "tag": "v20261015",
+      "name": "Release v20261015",
+      "published_at": "2026-10-16T14:16:09Z",
+      "html_url": "https://github.com/chickwood/StationEventInfomation/releases/tag/v20261015",
+      "assets": [
+        {
+          "name": "station_data_xyz.bin",
+          "size": 609987,
+          "url": "https://www.w57.name/download.html?project=c6f7b0e2&file=station_data_xyz.bin"
+        }
+      ]
+    }
+  ]
 }
