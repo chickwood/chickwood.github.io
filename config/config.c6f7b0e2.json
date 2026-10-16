@@ -1,4 +1,9 @@
 {
   "owner": "chickwood",
-  "repo": "StationEventInfomation"
+  "repo": "StationEventInfomation",
+  "additionalDescription": {
+    "zh-CN": "车站信息文件是《station_data_xyz.bin》，活动信息文件是《event_data.json》。",
+    "ja": "駅情報ファイルは「station_data_xyz.bin」で、イベント情報ファイルは「event_data.json」です。",
+    "en": "The station information file is \"station_data_xyz.bin\", and the event information file is \"event_data.json\"."
+  }
 }
