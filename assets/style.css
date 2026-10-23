@@ -367,7 +367,6 @@ a.brand:hover {
 #lightboxImage {
   max-width: calc(100vw - 128px);
   max-height: calc(100vh - 128px);
-  max-height: calc(100dvh - 128px);
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 0 10px var(--border);
