@@ -30,7 +30,7 @@
       },
       {
         "src": "images/2b67d10a/5-status-zh-CN.png",
-        "caption": "当前定位及状态（分 2 阶段展示）"
+        "caption": "当前定位及状态（二阶段展示）"
       },
       {
         "src": "images/2b67d10a/7-lang-zh-CN.png",
@@ -94,7 +94,7 @@
       },
       {
         "src": "images/2b67d10a/5-status-en.png",
-        "caption": "Current Location and Status (2-Stages)"
+        "caption": "Current Location and Status (2-Stage View)"
       },
       {
         "src": "images/2b67d10a/7-lang-en.png",
