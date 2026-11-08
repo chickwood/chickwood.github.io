@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-11-08T10:56:15.178Z",
+  "updatedAt": "2026-11-08T15:12:50.363Z",
   "releases": [
     {
-      "tag": "v1.5.0+2026110801",
-      "name": "Release v1.5.0+2026110801",
-      "published_at": "2026-11-08T10:51:27Z",
-      "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.5.0%2B2026110801",
+      "tag": "v1.5.1+2026110901",
+      "name": "Release v1.5.1+2026110901",
+      "published_at": "2026-11-08T15:11:22Z",
+      "html_url": "https://github.com/chickwood/NearestStationNotification/releases/tag/v1.5.1%2B2026110901",
       "assets": [
         {
-          "name": "nearest_station_notification-release-2026110801.apk",
-          "size": 55118993,
-          "url": "https://www.w57.name/download.html?project=2b67d10a&file=nearest_station_notification-release-2026110801.apk"
+          "name": "nearest_station_notification-release-2026110901.apk",
+          "size": 55118997,
+          "url": "https://www.w57.name/download.html?project=2b67d10a&file=nearest_station_notification-release-2026110901.apk"
         }
       ]
     },
