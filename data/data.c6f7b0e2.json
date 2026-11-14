@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-11-13T17:26:18.922Z",
+  "updatedAt": "2026-11-14T06:51:14.604Z",
   "releases": [
     {
       "tag": "v2026.11.14",
       "name": "Release v2026.11.14",
-      "published_at": "2026-11-13T17:25:26Z",
+      "published_at": "2026-11-14T06:38:59Z",
       "html_url": "https://github.com/chickwood/StationEventInfomation/releases/tag/v2026.11.14",
       "assets": [
         {
           "name": "station-event.20261114.zip",
-          "size": 428856,
+          "size": 411657,
           "url": "https://www.w57.name/download.html?project=c6f7b0e2&file=station-event.20261114.zip"
         }
       ]
