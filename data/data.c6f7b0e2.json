@@ -1,18 +1,25 @@
 {
-  "updatedAt": "2026-11-22T17:26:39.260Z",
+  "updatedAt": "2026-11-24T12:44:09.299Z",
   "releases": [
+    {
+      "tag": "v2026.11.24",
+      "name": "Release v2026.11.24",
+      "published_at": "2026-11-24T12:21:14Z",
+      "html_url": "https://github.com/chickwood/StationEventInfomation/releases/tag/v2026.11.24",
+      "assets": [
+        {
+          "name": "station-event.20261124.zip",
+          "size": 411651,
+          "url": "https://www.w57.name/download.html?project=c6f7b0e2&file=station-event.20261124.zip"
+        }
+      ]
+    },
     {
       "tag": "v2026.11.14",
       "name": "Release v2026.11.14",
       "published_at": "2026-11-14T06:38:59Z",
       "html_url": "https://github.com/chickwood/StationEventInfomation/releases/tag/v2026.11.14",
-      "assets": [
-        {
-          "name": "station-event.20261114.zip",
-          "size": 411657,
-          "url": "https://www.w57.name/download.html?project=c6f7b0e2&file=station-event.20261114.zip"
-        }
-      ]
+      "assets": []
     },
     {
       "tag": "v2026.10.15",
